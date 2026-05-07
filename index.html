@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FckSignups — No-Signup Open Source Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-elevated: #12121a;
+            --bg-card: #1a1a24;
+            --bg-card-hover: #222230;
+            --border: #2a2a3a;
+            --border-hover: #3a3a50;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6a6a7a;
+            --accent: #ff6b6b;
+            --accent-hover: #ff8585;
+            --accent-glow: rgba(255, 107, 107, 0.15);
+            --green: #4ade80;
+            --green-glow: rgba(74, 222, 128, 0.15);
+            --blue: #60a5fa;
+            --blue-glow: rgba(96, 165, 250, 0.15);
+            --purple: #c084fc;
+            --purple-glow: rgba(192, 132, 252, 0.15);
+            --orange: #fb923c;
+            --orange-glow: rgba(251, 146, 60, 0.15);
+            --yellow: #facc15;
+            --yellow-glow: rgba(250, 204, 21, 0.15);
+            --cyan: #22d3ee;
+            --cyan-glow: rgba(34, 211, 238, 0.15);
+            --pink: #f472b6;
+            --pink-glow: rgba(244, 114, 182, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .header.scrolled {
+            background: rgba(10, 10, 15, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        .logo-icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--accent), #ff4757);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .logo-text { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+        .logo-text span { color: var(--accent); }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .github-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .github-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+        .github-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+        /* Hero */
+        .hero {
+            padding: 140px 24px 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .hero-badge .dot {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #ff4757);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .stat { text-align: center; }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Controls */
+        .controls {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+        }
+        .search-box {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition);
+        }
+        .search-box input::placeholder { color: var(--text-muted); }
+        .search-box input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .search-box svg {
+            position: absolute;
+            left: 16px; top: 50%;
+            transform: translateY(-50%);
+            width: 20px; height: 20px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+        .search-box input:focus + svg { color: var(--accent); }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+        .category-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .category-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+        .category-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .category-btn .cat-icon { font-size: 14px; }
+        .category-btn .cat-count {
+            font-size: 11px;
+            background: rgba(255,255,255,0.15);
+            padding: 1px 6px;
+            border-radius: 100px;
+            margin-left: 2px;
+        }
+
+        /* Content */
+        .content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Featured Grid */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .featured-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #ff4757);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .featured-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .featured-card:hover::before { opacity: 1; }
+        .featured-badge {
+            position: absolute;
+            top: 16px; right: 16px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: linear-gradient(135deg, var(--accent), #ff4757);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .featured-card .card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .tool-icon {
+            width: 48px; height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--accent), #ff4757);
+            color: white;
+        }
+        .tool-icon.green { background: linear-gradient(135deg, var(--green), #22c55e); }
+        .tool-icon.blue { background: linear-gradient(135deg, var(--blue), #3b82f6); }
+        .tool-icon.purple { background: linear-gradient(135deg, var(--purple), #a855f7); }
+        .tool-icon.orange { background: linear-gradient(135deg, var(--orange), #f97316); }
+        .tool-icon.yellow { background: linear-gradient(135deg, var(--yellow), #eab308); }
+        .tool-icon.cyan { background: linear-gradient(135deg, var(--cyan), #06b6d4); }
+        .tool-icon.pink { background: linear-gradient(135deg, var(--pink), #ec4899); }
+
+        .card-title { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+        .card-category { font-size: 12px; color: var(--text-muted); text-transform: capitalize; }
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            padding: 3px 10px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .card-meta { display: flex; align-items: center; gap: 12px; }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .meta-item svg { width: 14px; height: 14px; fill: currentColor; }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+        }
+        .tool-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .tool-card .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .tool-card .tool-icon {
+            width: 40px; height: 40px;
+            font-size: 18px;
+            border-radius: var(--radius-sm);
+        }
+        .tool-card .card-title { font-size: 15px; }
+        .tool-card .card-desc { font-size: 13px; margin-bottom: 12px; }
+        .tool-card .card-footer { margin-top: auto; }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-muted);
+        }
+        .empty-state svg {
+            width: 64px; height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+        .empty-state h3 { font-size: 18px; color: var(--text-secondary); margin-bottom: 8px; }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .footer-inner { max-width: 1400px; margin: 0 auto; }
+        .footer p { color: var(--text-muted); font-size: 14px; }
+        .footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner { padding: 0 16px; }
+            .hero { padding: 120px 16px 40px; }
+            .hero-stats { gap: 24px; }
+            .controls { padding: 0 16px 32px; }
+            .content { padding: 0 16px 60px; }
+            .featured-grid { grid-template-columns: 1fr; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .categories {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                padding-bottom: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .categories::-webkit-scrollbar { display: none; }
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+        }
+        .spinner {
+            width: 40px; height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in { animation: fadeInUp 0.5s ease forwards; }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">F</div>
+                <div class="logo-text">Fck<span>Signups</span></div>
+            </a>
+            <div class="header-right">
+                <a href="https://github.com/yourusername/fcksignups" class="github-btn" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    Star on GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            No Signups Required
+        </div>
+        <h1>Open Source Tools.<br><span class="highlight">Zero Bullsh*t.</span></h1>
+        <p>A curated collection of open-source tools you can use instantly in your browser — no accounts, no emails, no tracking. Just tools that work.</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-value" id="stat-tools">0</div>
+                <div class="stat-label">Tools</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="stat-categories">0</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Open Source</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search tools by name, tag, or description...">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        </div>
+        <div class="categories" id="categoryFilters">
+            <button class="category-btn active" data-category="all">
+                <span class="cat-icon">🔥</span> All
+            </button>
+        </div>
+    </div>
+
+    <main class="content" id="content">
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>Built with 💀 by people who hate signups. Data sourced from <a href="https://github.com/yourusername/fcksignups" target="_blank" rel="noopener">GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        // GitHub Raw JSON URL - Replace with your actual repo URL
+        const DATA_URL = 'https://raw.githubusercontent.com/yourusername/fcksignups/main/tools.json';
+        let toolsData = null;
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        const iconColors = ['', 'green', 'blue', 'purple', 'orange', 'yellow', 'cyan', 'pink'];
+        function getIconColor(index) {
+            return iconColors[index % iconColors.length];
+        }
+
+        async function fetchData() {
+            try {
+                const response = await fetch(DATA_URL);
+                if (!response.ok) throw new Error('Failed to fetch');
+                toolsData = await response.json();
+            } catch (error) {
+                console.warn('Failed to fetch from GitHub, using fallback data:', error);
+                toolsData = FALLBACK_DATA;
+            }
+            render();
+        }
+
+        function render() {
+            if (!toolsData) return;
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('stat-tools').textContent = toolsData.tools.length;
+            document.getElementById('stat-categories').textContent = toolsData.categories.length;
+            renderCategories();
+            renderContent();
+        }
+
+        function renderCategories() {
+            const container = document.getElementById('categoryFilters');
+            const allBtn = container.querySelector('[data-category="all"]');
+            container.innerHTML = '';
+            container.appendChild(allBtn);
+
+            // Count tools per category
+            const counts = {};
+            toolsData.tools.forEach(t => {
+                counts[t.category] = (counts[t.category] || 0) + 1;
+            });
+
+            toolsData.categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'category-btn';
+                btn.dataset.category = cat.id;
+                const count = counts[cat.id] || 0;
+                btn.innerHTML = `<span class="cat-icon">${cat.icon}</span> ${cat.name}<span class="cat-count">${count}</span>`;
+                btn.addEventListener('click', () => setCategory(cat.id));
+                container.appendChild(btn);
+            });
+
+            const activeBtn = container.querySelector(`[data-category="${currentCategory}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+
+        function setCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === cat);
+            });
+            renderContent();
+        }
+
+        function filterTools() {
+            let tools = toolsData.tools;
+            if (currentCategory !== 'all') {
+                tools = tools.filter(t => t.category === currentCategory);
+            }
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                tools = tools.filter(t =>
+                    t.name.toLowerCase().includes(q) ||
+                    t.description.toLowerCase().includes(q) ||
+                    t.tags.some(tag => tag.toLowerCase().includes(q))
+                );
+            }
+            return tools;
+        }
+
+        function renderContent() {
+            const container = document.getElementById('content');
+            const tools = filterTools();
+
+            if (tools.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        <h3>No tools found</h3>
+                        <p>Try adjusting your search or category filter.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const featured = tools.filter(t => t.featured);
+            const regular = tools.filter(t => !t.featured);
+
+            let html = '';
+
+            if (featured.length > 0 && currentCategory === 'all' && !searchQuery) {
+                html += '<div class="section-title">⭐ Featured</div>';
+                html += '<div class="featured-grid">';
+                featured.forEach((tool, i) => {
+                    html += renderFeaturedCard(tool, i);
+                });
+                html += '</div>';
+            }
+
+            if (regular.length > 0 || (searchQuery || currentCategory !== 'all')) {
+                html += `<div class="section-title">${searchQuery ? '🔍 Search Results' : '📦 All Tools'}</div>`;
+                html += '<div class="tools-grid">';
+                (searchQuery || currentCategory !== 'all' ? tools : regular).forEach((tool, i) => {
+                    html += renderToolCard(tool, i);
+                });
+                html += '</div>';
+            }
+
+            container.innerHTML = html;
+
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.featured-card, .tool-card').forEach((card, i) => {
+                    card.style.opacity = '0';
+                    card.style.animation = `fadeInUp 0.4s ease ${i * 0.03}s forwards`;
+                });
+            });
+        }
+
+        function renderFeaturedCard(tool, index) {
+            const colorClass = getIconColor(index);
+            const stars = tool.stars ? formatStars(tool.stars) : '';
+            const tags = tool.tags.slice(0, 3).map(t => `<span class="tag">${t}</span>`).join('');
+            const githubLink = tool.github ? `<a href="${tool.github}" target="_blank" rel="noopener" class="meta-item" onclick="event.stopPropagation();"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>` : '';
+
+            return `
+                <a href="${tool.url}" target="_blank" rel="noopener" class="featured-card animate-in">
+                    <div class="featured-badge">Featured</div>
+                    <div class="card-header">
+                        <div class="tool-icon ${colorClass}">${tool.name.charAt(0)}</div>
+                        <div>
+                            <div class="card-title">${tool.name}</div>
+                            <div class="card-category">${getCategoryName(tool.category)}</div>
+                        </div>
+                    </div>
+                    <div class="card-desc">${tool.description}</div>
+                    <div class="card-footer">
+                        <div class="card-tags">${tags}</div>
+                        <div class="card-meta">
+                            ${stars ? `<div class="meta-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>${stars}</div>` : ''}
+                            ${githubLink}
+                            ${tool.license ? `<div class="meta-item">${tool.license}</div>` : ''}
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        function renderToolCard(tool, index) {
+            const colorClass = getIconColor(index + 10);
+            const stars = tool.stars ? formatStars(tool.stars) : '';
+            const tags = tool.tags.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join('');
+            const githubLink = tool.github ? `<a href="${tool.github}" target="_blank" rel="noopener" class="meta-item" onclick="event.stopPropagation();"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>` : '';
+
+            return `
+                <a href="${tool.url}" target="_blank" rel="noopener" class="tool-card animate-in">
+                    <div class="card-header">
+                        <div class="tool-icon ${colorClass}">${tool.name.charAt(0)}</div>
+                        <div>
+                            <div class="card-title">${tool.name}</div>
+                            <div class="card-category">${getCategoryName(tool.category)}</div>
+                        </div>
+                    </div>
+                    <div class="card-desc">${tool.description}</div>
+                    <div class="card-footer">
+                        <div class="card-tags">${tags}</div>
+                        <div class="card-meta">
+                            ${stars ? `<div class="meta-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>${stars}</div>` : ''}
+                            ${githubLink}
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        function getCategoryName(id) {
+            const cat = toolsData.categories.find(c => c.id === id);
+            return cat ? cat.name : id;
+        }
+
+        function formatStars(num) {
+            if (num >= 1000) {
+                return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+            }
+            return num.toString();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            renderContent();
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        const FALLBACK_DATA = {"categories": [{"id": "productivity", "name": "Productivity", "icon": "\u26a1", "description": "Get things done without creating accounts"}, {"id": "design", "name": "Design & Graphics", "icon": "\ud83c\udfa8", "description": "Create visuals right in your browser"}, {"id": "development", "name": "Development", "icon": "\ud83d\udcbb", "description": "Code, query, and build in the browser"}, {"id": "writing", "name": "Writing & Docs", "icon": "\u270d\ufe0f", "description": "Write, edit, and format text"}, {"id": "privacy", "name": "Privacy & Security", "icon": "\ud83d\udd12", "description": "Protect your data without trusting servers"}, {"id": "utilities", "name": "Utilities", "icon": "\ud83d\udee0\ufe0f", "description": "Handy one-off tools for everyday tasks"}, {"id": "data", "name": "Data & Analytics", "icon": "\ud83d\udcca", "description": "Explore and visualize data locally"}, {"id": "media", "name": "Media", "icon": "\ud83c\udfac", "description": "Edit and create media in-browser"}], "tools": [{"id": "excalidraw", "name": "Excalidraw", "description": "Virtual whiteboard for sketching hand-drawn diagrams. Everything stays in your browser.", "url": "https://excalidraw.com", "category": "design", "tags": ["whiteboard", "diagrams", "sketching"], "github": "https://github.com/excalidraw/excalidraw", "license": "MIT", "stars": 123000, "featured": true}, {"id": "cryptpad", "name": "CryptPad", "description": "End-to-end encrypted collaborative office suite. Edit docs, sheets, and slides without an account.", "url": "https://cryptpad.fr", "category": "productivity", "tags": ["office", "encryption", "collaboration"], "github": "https://github.com/cryptpad/cryptpad", "license": "AGPL-3.0", "stars": 7600, "featured": true}, {"id": "grist", "name": "Grist", "description": "Relational spreadsheet that runs in your browser. Link tables, use formulas, no server needed.", "url": "https://docs.getgrist.com", "category": "productivity", "tags": ["spreadsheet", "database", "relational"], "github": "https://github.com/gristlabs/grist-core", "license": "Apache-2.0", "stars": 11000, "featured": true}, {"id": "penpot", "name": "Penpot", "description": "Open-source design & prototyping tool. Figma alternative that runs entirely in the browser.", "url": "https://design.penpot.app", "category": "design", "tags": ["ui-design", "prototyping", "svg"], "github": "https://github.com/penpot/penpot", "license": "MPL-2.0", "stars": 47000, "featured": true}, {"id": "datasette-lite", "name": "Datasette Lite", "description": "Explore SQLite databases entirely in your browser via WebAssembly. No server, no upload.", "url": "https://lite.datasette.io", "category": "data", "tags": ["sqlite", "database", "wasm"], "github": "https://github.com/simonw/datasette-lite", "license": "Apache-2.0", "stars": 3200, "featured": true}, {"id": "rawgraphs", "name": "RAWGraphs", "description": "Paste CSV data and create 30+ chart types. Everything processes locally in your browser.", "url": "https://app.rawgraphs.io", "category": "data", "tags": ["visualization", "charts", "csv"], "github": "https://github.com/rawgraphs/rawgraphs-app", "license": "Apache-2.0", "stars": 8500, "featured": true}, {"id": "drawdb", "name": "drawDB", "description": "Design database schemas visually and generate SQL. Runs entirely client-side.", "url": "https://www.drawdb.app", "category": "development", "tags": ["database", "diagrams", "sql"], "github": "https://github.com/drawdb-io/drawdb", "license": "AGPL-3.0", "stars": 37000, "featured": true}, {"id": "graphite", "name": "Graphite", "description": "Procedural 2D vector graphics editor. Node-based, non-destructive, runs locally in browser.", "url": "https://editor.graphite.rs", "category": "design", "tags": ["vector", "graphics", "procedural"], "github": "https://github.com/GraphiteEditor/Graphite", "license": "Apache-2.0", "stars": 25000, "featured": true}, {"id": "mermaid-live", "name": "Mermaid Live", "description": "Create diagrams from text. Flowcharts, sequence diagrams, Gantt charts \u2014 all in your browser.", "url": "https://mermaid.live", "category": "development", "tags": ["diagrams", "markdown", "documentation"], "github": "https://github.com/mermaid-js/mermaid-live-editor", "license": "MIT", "stars": 8200, "featured": false}, {"id": "privacy-sexy", "name": "privacy.sexy", "description": "Generate privacy-hardening scripts for Windows, macOS, Linux. Pick tweaks, get the script.", "url": "https://privacy.sexy", "category": "privacy", "tags": ["privacy", "scripts", "security"], "github": "https://github.com/undergroundwires/privacy.sexy", "license": "GPL-3.0", "stars": 10500, "featured": false}, {"id": "opencut", "name": "OpenCut", "description": "Browser-based video editor. All processing happens locally on your device. No upload needed.", "url": "https://opencut.app", "category": "media", "tags": ["video", "editor", "local"], "github": "https://github.com/OpenCut-app", "license": "MIT", "stars": 4200, "featured": false}, {"id": "svg-edit", "name": "SVG-Edit", "description": "Full-featured SVG editor in the browser. Draw, edit paths, export \u2014 no install needed.", "url": "https://svg-edit.github.io/svgedit", "category": "design", "tags": ["svg", "vector", "editor"], "github": "https://github.com/SVG-Edit/svgedit", "license": "MIT", "stars": 6200, "featured": false}, {"id": "method-draw", "name": "Method Draw", "description": "Clean, intuitive SVG editor. Export to PNG. Perfect for quick vector work.", "url": "https://editor.method.ac", "category": "design", "tags": ["svg", "vector", "simple"], "github": "https://github.com/methodofaction/Method-Draw", "license": "MIT", "stars": 4800, "featured": false}, {"id": "piskel", "name": "Piskel", "description": "Free online editor for animated sprites and pixel art. Export to GIF, PNG, or spritesheet.", "url": "https://www.piskelapp.com", "category": "design", "tags": ["pixel-art", "animation", "sprites"], "github": "https://github.com/piskelapp/piskel", "license": "Apache-2.0", "stars": 11000, "featured": false}, {"id": "browserpad", "name": "Browserpad", "description": "Server-less plain text editor in the browser. Open and save text files locally.", "url": "https://browserpad.org", "category": "writing", "tags": ["text-editor", "plain-text", "local"], "github": "https://github.com/LeaVerou/browserpad", "license": "MIT", "stars": 320, "featured": false}, {"id": "protectedtext", "name": "ProtectedText", "description": "Encrypted notes with no ads, sessions, or cookies. Password-protect your text.", "url": "https://www.protectedtext.com", "category": "privacy", "tags": ["encryption", "notes", "password"], "github": "https://github.com/ProtectedText", "license": "MIT", "stars": 1800, "featured": false}, {"id": "cryptii", "name": "Cryptii", "description": "Modular conversion, encoding and encryption with 30+ ciphers. All client-side.", "url": "https://cryptii.com", "category": "privacy", "tags": ["encryption", "encoding", "ciphers"], "github": "https://github.com/cryptii/cryptii", "license": "MIT", "stars": 2100, "featured": false}, {"id": "encipher-it", "name": "Encipher.it", "description": "AES-256 text encryption and decryption in your browser. No data leaves your device.", "url": "https://encipher.it", "category": "privacy", "tags": ["encryption", "aes-256", "text"], "github": "https://github.com/encipher", "license": "MIT", "stars": 450, "featured": false}, {"id": "tmp-tf", "name": "tmp.tf", "description": "Temporary clipboard via short URL. Share text between devices without an account.", "url": "https://tmp.tf", "category": "utilities", "tags": ["clipboard", "share", "temporary"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "led-run", "name": "led.run", "description": "Turn any screen into a configurable display: scrolling text, timers, clocks. URL-configured.", "url": "https://led.run", "category": "utilities", "tags": ["display", "timer", "screen"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "qr-code-generator", "name": "QR Code Generator", "description": "Generate QR codes for WiFi, contacts, URLs, calendar events. Works offline.", "url": "https://www.qr-code-generator.com", "category": "utilities", "tags": ["qr-code", "offline", "generator"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "random-org", "name": "RANDOM.ORG", "description": "True random number generator, dice rolls, password generator, random bitmaps.", "url": "https://www.random.org", "category": "utilities", "tags": ["random", "generator", "passwords"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "markdown-live-preview", "name": "Markdown Live Preview", "description": "Instant Markdown preview in your browser. No server, no save \u2014 just type and see.", "url": "https://markdownlivepreview.com", "category": "writing", "tags": ["markdown", "preview", "editor"], "github": "https://github.com/tmiland/markdown-live-preview", "license": "MIT", "stars": 180, "featured": false}, {"id": "hackmd", "name": "HackMD", "description": "Collaborative real-time Markdown editor. No signup needed to create and share notes.", "url": "https://hackmd.io", "category": "writing", "tags": ["markdown", "collaboration", "notes"], "github": "https://github.com/hackmdio/codimd", "license": "AGPL-3.0", "stars": 9500, "featured": false}, {"id": "ethercalc", "name": "EtherCalc", "description": "Collaborative spreadsheet editor in the browser. Exports to Excel. No account required.", "url": "https://ethercalc.org", "category": "productivity", "tags": ["spreadsheet", "collaboration", "excel"], "github": "https://github.com/audreyt/ethercalc", "license": "CPAL-1.0", "stars": 3400, "featured": false}, {"id": "writeurl", "name": "WriteURL", "description": "Collaborative real-time text editor. Share a URL and start writing together instantly.", "url": "https://writeurl.com", "category": "writing", "tags": ["collaboration", "text", "real-time"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "witeboard", "name": "Witeboard", "description": "Real-time collaborative whiteboard. Just open and draw \u2014 no signup, no install.", "url": "https://witeboard.com", "category": "design", "tags": ["whiteboard", "collaboration", "drawing"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "a-web-whiteboard", "name": "A Web Whiteboard", "description": "Touch-friendly collaborative whiteboard. Works on tablets and phones too.", "url": "https://awwapp.com", "category": "design", "tags": ["whiteboard", "touch", "mobile"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "jstorrent", "name": "JSTorrent", "description": "Torrent client that runs entirely in Chrome. No install, no server needed.", "url": "https://jstorrent.com", "category": "utilities", "tags": ["torrent", "p2p", "chrome"], "github": "https://github.com/kzahel/jstorrent", "license": "MIT", "stars": 1200, "featured": false}, {"id": "favicon-generator", "name": "Favicon Generator", "description": "Generate favicons for web apps and mobile apps from any image. Instant download.", "url": "https://favicon.io", "category": "utilities", "tags": ["favicon", "icons", "generator"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "tiny-png", "name": "TinyPNG", "description": "Smart PNG and JPEG compression. Reduce file sizes without visible quality loss.", "url": "https://tinypng.com", "category": "utilities", "tags": ["compression", "images", "optimization"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "ezgif", "name": "ezGIF", "description": "GIF editor: crop, resize, optimize, add text, split frames. All in browser.", "url": "https://ezgif.com", "category": "media", "tags": ["gif", "editor", "animation"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "coolors", "name": "Coolors", "description": "Generate beautiful color palettes. Lock colors, explore harmonies, export instantly.", "url": "https://coolors.co", "category": "design", "tags": ["colors", "palette", "design"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "dillinger", "name": "Dillinger", "description": "Powerful Markdown WYSIWYG editor. Export to HTML and PDF. Works offline.", "url": "https://dillinger.io", "category": "writing", "tags": ["markdown", "editor", "export"], "github": "https://github.com/joemccann/dillinger", "license": "MIT", "stars": 8200, "featured": false}, {"id": "stackedit", "name": "StackEdit", "description": "Rich in-browser Markdown editor that works offline. Sync with Google Drive, Dropbox.", "url": "https://stackedit.io", "category": "writing", "tags": ["markdown", "offline", "sync"], "github": "https://github.com/benweet/stackedit", "license": "Apache-2.0", "stars": 22000, "featured": false}, {"id": "pdf-escape", "name": "PDFescape", "description": "Edit or create PDFs directly in your browser. Fill forms, annotate, merge.", "url": "https://www.pdfescape.com", "category": "productivity", "tags": ["pdf", "editor", "forms"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "print-friendly", "name": "Print Friendly", "description": "Convert any webpage to a clean, printable format. Remove ads and clutter.", "url": "https://www.printfriendly.com", "category": "utilities", "tags": ["print", "clean", "webpage"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "what-the-font", "name": "WhatTheFont", "description": "Identify fonts from an image. Upload a screenshot and get the closest matches.", "url": "https://www.myfonts.com/pages/whatthefont", "category": "design", "tags": ["fonts", "identify", "typography"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "image-metadata", "name": "Image Metadata Viewer", "description": "View hidden EXIF data from any image. Camera info, GPS, timestamps \u2014 all revealed.", "url": "https://www.exifdata.com", "category": "utilities", "tags": ["metadata", "exif", "images"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "10-minute-mail", "name": "10 Minute Mail", "description": "Temporary fully functional email address for 10 minutes. Extendable. No signup.", "url": "https://10minutemail.com", "category": "privacy", "tags": ["email", "temporary", "disposable"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "mailinator", "name": "Mailinator", "description": "Disposable email service. Pick any inbox name and receive emails instantly.", "url": "https://mailinator.com", "category": "privacy", "tags": ["email", "disposable", "inbox"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "typingweb", "name": "TypingWeb", "description": "Master touch-typing with interactive lessons. Track your WPM and accuracy.", "url": "https://www.typingweb.com", "category": "utilities", "tags": ["typing", "learning", "speed"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "e-gg-timer", "name": "E.gg Timer", "description": "Simple countdown timer. Just type the duration in the URL: e.g. /5min or /30s.", "url": "https://e.ggtimer.com", "category": "utilities", "tags": ["timer", "countdown", "simple"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "daily-todo", "name": "Daily Todo", "description": "Simple todo list maker. No accounts, no persistence \u2014 just a clean list for today.", "url": "https://dailytodo.org", "category": "productivity", "tags": ["todo", "list", "simple"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "meditation-timer", "name": "Meditation Timer", "description": "Track your meditation sessions with a clean, distraction-free timer.", "url": "https://meditationtimer.org", "category": "utilities", "tags": ["meditation", "timer", "mindfulness"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "resume-nation", "name": "Resume Nation", "description": "Open-source resume builder PWA. Works offline, multiple themes, exports to PDF.", "url": "https://resume-nation.github.io", "category": "productivity", "tags": ["resume", "pdf", "offline"], "github": "https://github.com/resume-nation/resume-nation.github.io", "license": "MIT", "stars": 450, "featured": false}, {"id": "js-bin", "name": "JS Bin", "description": "Collaborative web development playground. HTML, CSS, JS \u2014 share via URL instantly.", "url": "https://jsbin.com", "category": "development", "tags": ["javascript", "playground", "collaboration"], "github": "https://github.com/jsbin/jsbin", "license": "MIT", "stars": 4300, "featured": false}, {"id": "codepen", "name": "CodePen", "description": "Front-end development playground. Build, test, and share code snippets.", "url": "https://codepen.io", "category": "development", "tags": ["frontend", "playground", "sharing"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "python-tutor", "name": "Python Tutor", "description": "Visualize Python, Java, JavaScript, TypeScript, Ruby, C, and C++ execution step by step.", "url": "https://pythontutor.com", "category": "development", "tags": ["visualization", "learning", "debugger"], "github": "https://github.com/pgbovine/OnlinePythonTutor", "license": "GPL-3.0", "stars": 5200, "featured": false}, {"id": "sql-fiddle", "name": "SQL Fiddle", "description": "Test and share database problems and solutions. Supports MySQL, PostgreSQL, SQLite, Oracle.", "url": "http://sqlfiddle.com", "category": "development", "tags": ["sql", "database", "testing"], "github": "https://github.com/zikula/sqlfiddle", "license": "MIT", "stars": 1800, "featured": false}, {"id": "dart-pad", "name": "DartPad", "description": "Play with the Dart language in any modern browser. Run Flutter snippets too.", "url": "https://dartpad.dev", "category": "development", "tags": ["dart", "flutter", "playground"], "github": "https://github.com/dart-lang/dart-pad", "license": "BSD-3-Clause", "stars": 3100, "featured": false}, {"id": "brainfuck-visualizer", "name": "Brainfuck Visualizer", "description": "JavaScript Brainfuck interpreter + visualizer. See exactly how your code executes.", "url": "https://fatiherikli.github.io/brainfuck-visualizer", "category": "development", "tags": ["brainfuck", "visualizer", "interpreter"], "github": "https://github.com/fatiherikli/brainfuck-visualizer", "license": "MIT", "stars": 890, "featured": false}, {"id": "acronym-creator", "name": "Acronym Creator", "description": "Create acronyms for organizations, algorithms, or anything with two+ words.", "url": "https://acronymcreator.net", "category": "utilities", "tags": ["acronym", "generator", "names"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "print-what-you-like", "name": "PrintWhatYouLike", "description": "Print any webpage or save as HTML/PDF. Remove unwanted elements before printing.", "url": "https://www.printwhatyoulike.com", "category": "utilities", "tags": ["print", "pdf", "webpage"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "who-is-hosting", "name": "WhoIsHostingThis", "description": "Find the web host of any website. Quick DNS and hosting provider lookup.", "url": "https://www.whoishostingthis.com", "category": "utilities", "tags": ["hosting", "dns", "lookup"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "jotti", "name": "Jotti", "description": "Scan suspicious files or email attachments for viruses using multiple engines.", "url": "https://virusscan.jotti.org", "category": "privacy", "tags": ["virus", "scan", "security"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "scr-im", "name": "scr.im", "description": "Share your email address freely without worrying about spam. Creates a protected link.", "url": "https://scr.im", "category": "privacy", "tags": ["email", "spam", "protection"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "bugmenot", "name": "BugMeNot", "description": "Find and share logins for websites that force registration. Community-driven.", "url": "https://bugmenot.com", "category": "privacy", "tags": ["logins", "sharing", "community"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "online-convert", "name": "Online Convert", "description": "Convert audio, video, images, documents, ebooks, and archives. No file size limits.", "url": "https://www.online-convert.com", "category": "utilities", "tags": ["converter", "files", "media"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "pandoc-try", "name": "Pandoc Try", "description": "Inter-markup conversion using Pandoc. LaTeX, Markdown, HTML, RST and more.", "url": "https://pandoc.org/try", "category": "utilities", "tags": ["pandoc", "conversion", "markup"], "github": "https://github.com/jgm/pandoc-try", "license": "GPL-2.0", "stars": 0, "featured": false}, {"id": "cloud-convert", "name": "Cloud Convert", "description": "Convert anything to anything: audio, video, fonts, documents. Cloud storage integration.", "url": "https://cloudconvert.com", "category": "utilities", "tags": ["converter", "cloud", "media"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "gif-deck", "name": "GifDeck", "description": "Convert slides from SlideShare to animated GIF. Great for sharing presentations.", "url": "https://gifdeck.in", "category": "media", "tags": ["gif", "slides", "presentation"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "ico-moon", "name": "IcoMoon", "description": "Find vector icon packs, host icons as SVGs or fonts, generate icon fonts.", "url": "https://icomoon.io", "category": "design", "tags": ["icons", "svg", "fonts"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "flaming-text", "name": "Flaming Text", "description": "Online logo and name generator. Customize and download in PNG or JPEG.", "url": "https://flamingtext.com", "category": "design", "tags": ["logo", "generator", "text"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "lean-logo-maker", "name": "LeanLogoMaker", "description": "Generate 100s of logos, pick your favorite and download. Social media covers included.", "url": "https://leanlogomaker.com", "category": "design", "tags": ["logo", "generator", "branding"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "doka-photo", "name": "doka.photo", "description": "Easy photo editor: crop, rotate, flip, add filters, resize and annotate.", "url": "https://doka.photo", "category": "media", "tags": ["photo", "editor", "filters"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "clean-icons", "name": "CleanIcons", "description": "Download Font Awesome icons as PNGs in any size and color.", "url": "https://cleanicons.xyz", "category": "design", "tags": ["icons", "png", "fontawesome"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "branition-colors", "name": "Branition Colors", "description": "Hand-curated color palettes best fitted for branding and logo design.", "url": "https://branition.com/colors", "category": "design", "tags": ["colors", "palette", "branding"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "shrib", "name": "shrib", "description": "Save notes to a custom URL and edit them later. Simple, fast, no accounts.", "url": "https://shrib.com", "category": "writing", "tags": ["notes", "url", "simple"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "anotepad", "name": "aNotepad", "description": "Save notes without a user account using cookies. Clean and minimal.", "url": "https://anotepad.com", "category": "writing", "tags": ["notes", "cookies", "minimal"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "writexo", "name": "WriteXO", "description": "Online notepad with rich-text support, password protection and custom URLs.", "url": "https://writexo.com", "category": "writing", "tags": ["notepad", "rich-text", "password"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "notepad-pwa", "name": "Notepad PWA", "description": "Offline-capable notepad progressive web app. Works without internet.", "url": "https://notepad.js.org", "category": "writing", "tags": ["notepad", "pwa", "offline"], "github": "https://github.com/joshbuchea/notepad", "license": "MIT", "stars": 280, "featured": false}, {"id": "markdownify", "name": "Markdownify", "description": "Minimal Markdown editor with live preview. Distraction-free writing.", "url": "https://markdownify.js.org", "category": "writing", "tags": ["markdown", "minimal", "editor"], "github": "https://github.com/amitmerchant1990/markdownify", "license": "MIT", "stars": 1200, "featured": false}, {"id": "github-md", "name": "GitHub.md", "description": "Simple GitHub-style Markdown (GFM) preview with print feature.", "url": "https://github.md", "category": "writing", "tags": ["markdown", "github", "preview"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "bubbl", "name": "bubbl", "description": "Create mind maps and brainstorm ideas in the browser. No signup required.", "url": "https://bubbl.us", "category": "productivity", "tags": ["mind-map", "brainstorm", "ideas"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "scribble-maps", "name": "Scribble Maps", "description": "Create custom Google Maps with drawings, markers, and labels. Share via URL.", "url": "https://scribblemaps.com", "category": "utilities", "tags": ["maps", "drawing", "custom"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "sketchpad", "name": "Sketchpad", "description": "Create digital artwork and export to JPEG, PNG, SVG, and PDF.", "url": "https://sketch.io", "category": "design", "tags": ["art", "drawing", "export"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "jspaint", "name": "JSPaint", "description": "A replica of 1990s MS Paint in the browser. Nostalgic and fully functional.", "url": "https://jspaint.app", "category": "design", "tags": ["paint", "retro", "mspaint"], "github": "https://github.com/1j01/jspaint", "license": "MIT", "stars": 7800, "featured": false}, {"id": "kleki", "name": "Kleki", "description": "MS Paint-like interface in the browser with layers and brushes. Simple and fast.", "url": "https://kleki.com", "category": "design", "tags": ["paint", "layers", "brushes"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "pixel-craft", "name": "PixelCraft", "description": "Pixel art editor and animation creation tool. Export to spritesheets.", "url": "https://pixelcraft.web.app", "category": "design", "tags": ["pixel-art", "animation", "sprites"], "github": "https://github.com/pixelcraftstudio/pixelcraft", "license": "MIT", "stars": 650, "featured": false}, {"id": "randommer", "name": "Randommer", "description": "Random data generator and validator. Names, addresses, credit cards, IBANs.", "url": "https://randommer.io", "category": "utilities", "tags": ["random", "generator", "data"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "bucket-listy", "name": "Bucket Listy", "description": "Bucket list manager with unique ideas. Add your own and track progress.", "url": "https://bucketlisty.com", "category": "utilities", "tags": ["bucket-list", "goals", "tracking"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "tall-tweets", "name": "Tall Tweets", "description": "Send tweets longer than 280 characters by splitting them into a thread automatically.", "url": "https://talltweets.com", "category": "utilities", "tags": ["twitter", "threads", "long-text"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "kruti-dev-unicode", "name": "KrutiDev \u2194 Unicode", "description": "Convert KrutiDev to Unicode (Mangal) and vice versa in one click.", "url": "https://krutidevunicode.com", "category": "utilities", "tags": ["font", "converter", "hindi"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "web-capture", "name": "Web-Capture", "description": "Convert webpages to PDF, JPEG, or ZIP by submitting a link. No install needed.", "url": "https://web-capture.net", "category": "utilities", "tags": ["webpage", "capture", "pdf"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "tlk-io", "name": "Tlk.io", "description": "Create a chat room with any URL. Just share the link and start chatting.", "url": "https://tlk.io", "category": "utilities", "tags": ["chat", "room", "instant"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "gruveo", "name": "Gruveo", "description": "Video conference online with easy-to-remember custom URLs. No signup.", "url": "https://www.gruveo.com", "category": "utilities", "tags": ["video", "conference", "url"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "whereby", "name": "Whereby", "description": "Video meetings with custom room URLs. Create any room and start chatting.", "url": "https://whereby.com", "category": "utilities", "tags": ["video", "meeting", "room"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "videolink2", "name": "Videolink2", "description": "Video conference with auto-generated links. Share to invite participants.", "url": "https://videolink2.me", "category": "utilities", "tags": ["video", "conference", "link"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "getaroom", "name": "GetARoom.io", "description": "Video conference with mobile browser support. Click start and share the link.", "url": "https://getaroom.io", "category": "utilities", "tags": ["video", "mobile", "browser"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "goteam", "name": "GoTeam", "description": "Video meeting rooms with custom URLs. Username asked after room creation.", "url": "https://goteam.video", "category": "utilities", "tags": ["video", "meeting", "team"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "faxzero", "name": "FaxZero", "description": "Send an online fax for free. Upload your document and enter the fax number.", "url": "https://faxzero.com", "category": "utilities", "tags": ["fax", "free", "documents"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "a2fax", "name": "A2Fax", "description": "Send free faxes online with no ads on cover pages. Add your own logo.", "url": "https://a2fax.com", "category": "utilities", "tags": ["fax", "free", "logo"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "papeeria", "name": "Papeeria", "description": "LaTeX preview with PDF download available without registration.", "url": "https://papeeria.com", "category": "writing", "tags": ["latex", "pdf", "preview"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "ideone", "name": "Ideone", "description": "Online IDE supporting 60+ programming languages. Compile and run code instantly.", "url": "https://ideone.com", "category": "development", "tags": ["ide", "compiler", "multi-language"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "codepad", "name": "codepad", "description": "Online compiler with project support. Get a subdomain for your project.", "url": "https://codepad.org", "category": "development", "tags": ["compiler", "project", "subdomain"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "repl-it", "name": "Replit", "description": "Online terminals for all popular programming languages. No signup for basic use.", "url": "https://replit.com", "category": "development", "tags": ["repl", "terminal", "coding"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "codechef-ide", "name": "CodeChef IDE", "description": "Simple single-file code compiler supporting major languages. Quick and easy.", "url": "https://www.codechef.com/ide", "category": "development", "tags": ["compiler", "codechef", "competitive"], "github": "", "license": "", "stars": 0, "featured": false}, {"id": "dataflow-kit", "name": "Dataflow Kit", "description": "Extract structured data from web pages. No-code web scraping in the browser.", "url": "https://dataflowkit.com", "category": "development", "tags": ["scraping", "data", "no-code"], "github": "", "license": "", "stars": 0, "featured": false}]};
+
+        fetchData();
+    </script>
+</body>
+</html>
