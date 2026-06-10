@@ -396,7 +396,7 @@
       "github": "https://github.com/schlagmichdoch/pairdrop",
       "license": "GPL-3.0",
       "stars": 10500,
-      "featured": true 
+      "featured": true
     },
     {
       "id": "localsend-web",
@@ -408,7 +408,19 @@
       "github": "https://github.com/localsend/web",
       "license": "Apache-2.0",
       "stars": 143,
-      "featured": true 
+      "featured": true
+    },
+    {
+      "id": "webllm",
+      "name": "WebLLM",
+      "description": "High-performance In-browser LLM Inference Engine",
+      "url": "https://webllm.mlc.ai/",
+      "category": "productivity",
+      "tags": ["llm", "ai", "chat"],
+      "github": "https://github.com/mlc-ai/web-llm",
+      "license": "Apache-2.0",
+      "stars": 18200,
+      "featured": true
     }
   ]
 }
