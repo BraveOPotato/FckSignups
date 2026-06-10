@@ -385,6 +385,30 @@
       "license": "MIT",
       "stars": 650,
       "featured": false
+    },
+    {
+      "id": "pairdrop",
+      "name": "PairDrop",
+      "description": "Transfer Files Cross-Platform. No Setup, No Signup.",
+      "url": "https://pairdrop.net/",
+      "category": "utilities",
+      "tags": ["file", "transfer", "p2p", "LAN", "WAN"],
+      "github": "https://github.com/schlagmichdoch/pairdrop",
+      "license": "GPL-3.0",
+      "stars": 10500,
+      "featured": true 
+    },
+    {
+      "id": "localsend-web",
+      "name": "LocalSend-Web",
+      "description": "An open-source cross-platform alternative to AirDrop, but works in LAN only",
+      "url": "https://web.localsend.org/",
+      "category": "utilities",
+      "tags": ["file", "transfer", "p2p", "LAN"],
+      "github": "https://github.com/localsend/web",
+      "license": "Apache-2.0",
+      "stars": 143,
+      "featured": true 
     }
   ]
 }
