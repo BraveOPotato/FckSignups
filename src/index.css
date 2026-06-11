@@ -263,7 +263,6 @@ h1 .fck::after {
     max-width: 1400px;
     margin: 0 auto;
     padding: 1.5rem;
-    position: sticky;
     top: 0;
     background: rgba(5, 5, 5, 0.92);
     backdrop-filter: blur(12px);
