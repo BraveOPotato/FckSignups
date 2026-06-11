@@ -517,6 +517,72 @@
       "license": "MIT",
       "stars": 486,
       "featured": false
+    },
+    {
+      "id": "kicanvas",
+      "name": "KiCanvas",
+      "description": "An interactive browser-based viewer for KiCad schematics and PCB boards.",
+      "url": "https://kicanvas.org/",
+      "category": "development",
+      "tags": ["kicad", "pcb", "schematics", "electronics"],
+      "github": "https://github.com/theacodes/kicanvas",
+      "license": "MIT",
+      "stars": 1100,
+      "featured": false
+    },
+    {
+      "id": "circuitjs1",
+      "name": "CircuitJS1",
+      "description": "A browser-based electronic circuit simulator with animated schematics, example circuits, and editable components.",
+      "url": "https://www.falstad.com/circuit/",
+      "category": "development",
+      "tags": ["circuit", "simulator", "electronics", "schematics"],
+      "github": "https://github.com/pfalstad/circuitjs1",
+      "license": "GPL-2.0",
+      "stars": 2300,
+      "featured": false
+    },
+    {
+      "id": "algorithm-visualizer",
+      "name": "Algorithm Visualizer",
+      "description": "An interactive online platform for visualizing algorithms from code and learning algorithm behavior through animations.",
+      "url": "https://algorithm-visualizer.org/",
+      "category": "development",
+      "tags": [
+        "algorithms",
+        "visualizations",
+        "education",
+        "code",
+        "computer-science"
+      ],
+      "github": "https://github.com/algorithm-visualizer/algorithm-visualizer",
+      "license": "MIT",
+      "stars": 48600,
+      "featured": false
+    },
+    {
+      "id": "video-compress",
+      "name": "Video Compress",
+      "description": "Compress Videos for Free. Forever",
+      "url": "https://videocompress.prolab.sh/",
+      "category": "media",
+      "tags": ["media", "video", "compression"],
+      "github": "https://github.com/pranavp10/video-compress",
+      "license": "MIT",
+      "stars": 348,
+      "featured": false
+    },
+    {
+      "id": "subtitleedit",
+      "name": "SubtitleEdit",
+      "description": "Online Subtitle Editor",
+      "url": "https://www.nikse.dk/subtitleedit/online",
+      "category": "media",
+      "tags": ["media", "subtitle"],
+      "github": "https://github.com/SubtitleEdit/subtitleedit",
+      "license": "MIT",
+      "stars": 13100,
+      "featured": false
     }
   ]
 }
