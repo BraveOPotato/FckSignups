@@ -1,0 +1,16 @@
+name = "fcksignups-submit"
+main = "worker.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Secrets (set via CLI, NOT stored here)
+# Run each of these once:
+#
+#   npx wrangler secret put GITHUB_TOKEN        # PAT with `repo` scope
+#   npx wrangler secret put GITHUB_REPO_OWNER   # BraveOPotato
+#   npx wrangler secret put GITHUB_REPO_NAME    # FckSignups
+#
+# For local dev, create a .dev.vars file (gitignored):
+#   GITHUB_TOKEN=ghp_...
+#   GITHUB_REPO_OWNER=BraveOPotato
+#   GITHUB_REPO_NAME=FckSignups
