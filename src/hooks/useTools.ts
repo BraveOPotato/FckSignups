@@ -30,17 +30,23 @@ export function useTools(): UseToolsReturn {
     async function load() {
       setLoadStatus("loading");
       // Try loading the local dev JSON for testing.
-      let data = await loadTools(DEV_JSON_URL);
+      let data = true ? null : await loadTools(DEV_JSON_URL);
+      let error = "";
       // Try loading data from GITHUB.
       if (!data) data = await loadTools(PROD_JSON_URL);
       // If all fails, load fallback data
-      if (!data) data = FALLBACK_DATA;
-      hydrate(data);
+      if (!data) {
+        data = FALLBACK_DATA;
+        error = `Failed to get the freshest data from prod`;
+        setErrorMessage(error);
+      }
+
+      hydrate(data, error);
     }
     load();
   }, []);
 
-  function hydrate(data: ToolsData) {
+  function hydrate(data: ToolsData, error: string) {
     const cats = data.categories ?? [];
     if (!cats.find((c) => c.id === "all")) {
       cats.unshift({
@@ -52,7 +58,7 @@ export function useTools(): UseToolsReturn {
     }
     setAllTools(data.tools ?? []);
     setCategories(cats);
-    setLoadStatus("success");
+    setLoadStatus(!error ? "success" : "error");
   }
 
   const filteredTools = useMemo(() => {

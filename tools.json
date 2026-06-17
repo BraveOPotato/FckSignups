@@ -1051,6 +1051,18 @@
       "license": "MIT",
       "stars": 551,
       "featured": false
+    },
+    {
+      "id": "kpaste",
+      "name": "kPaste",
+      "description": "Private end-to-end encrypted pastebin",
+      "url": "https://kpaste.infomaniak.com/",
+      "category": "utilities",
+      "tags": ["paste-bin", "text"],
+      "github": "https://github.com/Infomaniak/kpaste",
+      "license": "GPL-3.0",
+      "stars": 56,
+      "featured": false
     }
   ]
 }

@@ -8,25 +8,16 @@ interface ToolGridProps {
   errorMessage: string;
 }
 
-export function ToolGrid({ tools, categories, loadStatus, errorMessage }: ToolGridProps) {
+export function ToolGrid({
+  tools,
+  categories,
+  loadStatus,
+  errorMessage,
+}: ToolGridProps) {
   if (loadStatus === "loading") {
     return (
       <main className="grid">
         <div className="loading">Initializing index</div>
-      </main>
-    );
-  }
-
-  if (loadStatus === "error") {
-    return (
-      <main className="grid">
-        <div className="error">
-          <h3>ERR_LOAD_FAILED</h3>
-          <p>{errorMessage}</p>
-          <p style={{ marginTop: "1rem", fontSize: "0.8rem", opacity: 0.7 }}>
-            Falling back to embedded dataset...
-          </p>
-        </div>
       </main>
     );
   }
@@ -44,6 +35,16 @@ export function ToolGrid({ tools, categories, loadStatus, errorMessage }: ToolGr
 
   return (
     <main className="grid">
+      {loadStatus == "error" && (
+        <div className="error">
+          <h3>ERR_LOAD_FAILED</h3>
+          <p>{errorMessage}</p>
+          <p style={{ marginTop: "1rem", fontSize: "0.8rem", opacity: 0.7 }}>
+            Falling back to embedded dataset...
+          </p>
+        </div>
+      )}
+
       {tools.map((tool, idx) => (
         <ToolCard
           key={tool.id}
