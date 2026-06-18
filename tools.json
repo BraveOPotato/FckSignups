@@ -1219,6 +1219,66 @@
       "license": "AGPL-3.0",
       "stars": 40921,
       "featured": false
+    },
+    {
+      "id": "toolsforimage",
+      "name": "ToolsForImage",
+      "description": "web application that provides a suite of image processing tools",
+      "url": "https://toolsforimage.com/",
+      "category": "design",
+      "tags": ["image", "list", "tools"],
+      "github": "https://github.com/mlbrothers/ToolsForImage-OSS",
+      "license": "MIT",
+      "stars": 15,
+      "featured": false
+    },
+    {
+      "id": "thesvg",
+      "name": "TheSVG",
+      "description": "6,100+ SVG icons. Brands, AWS, Azure, GCP, and more. Search, copy, ship.",
+      "url": "https://thesvg.org/",
+      "category": "design",
+      "tags": ["svg", "list", "logos", "icons"],
+      "github": "https://github.com/glincker/thesvg",
+      "license": "MIT",
+      "stars": 2289,
+      "featured": false
+    },
+    {
+      "id": "terraink",
+      "name": "TerraInk",
+      "description": "Cartographic poster engine",
+      "url": "https://terraink.app/",
+      "category": "design",
+      "tags": ["map", "art", "poster"],
+      "github": "https://github.com/yousifamanuel/terraink",
+      "license": "MIT",
+      "stars": 3326,
+      "featured": false
+    },
+    {
+      "id": "cheezypizza",
+      "name": "CheezyPizza",
+      "description": "WebRTC based p2p file transfers in your browser",
+      "url": "https://file.pizza/",
+      "category": "utilities",
+      "tags": ["file-transfer", "file", "transfer"],
+      "github": "https://github.com/hariharjeevan/cheezypizza",
+      "license": "BSD 3-Clause",
+      "stars": 102,
+      "featured": false
+    },
+    {
+      "id": "darklyart",
+      "name": "Darkly.Art",
+      "description": "Entropic Editor for Artists",
+      "url": "https://darkly.art/",
+      "category": "design",
+      "tags": ["editor", "image", "paint"],
+      "github": "https://github.com/darkly-art/darkly",
+      "license": "AGPL-3.0",
+      "stars": 55,
+      "featured": false
     }
   ]
 }

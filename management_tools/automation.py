@@ -64,7 +64,7 @@ def main():
     print("Adding...")
     print(json_file_data["tools"][-1])
 
-    # updateJSONFile(json_file_data)
+    updateJSONFile(json_file_data)
 
 
 if __name__ == "__main__":
