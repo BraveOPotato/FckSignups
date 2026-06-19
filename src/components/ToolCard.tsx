@@ -6,9 +6,15 @@ interface ToolCardProps {
   tool: Tool;
   index: number;
   category: Category | undefined;
+  setSearchQuery: (query: string) => void;
 }
 
-export function ToolCard({ tool, index, category }: ToolCardProps) {
+export function ToolCard({
+  tool,
+  index,
+  category,
+  setSearchQuery,
+}: ToolCardProps) {
   const cat = category ?? { icon: "◉", name: tool.category };
 
   return (
@@ -36,7 +42,7 @@ export function ToolCard({ tool, index, category }: ToolCardProps) {
 
       <div className="card-tags">
         {tool.tags.map((tag) => (
-          <span key={tag} className="tag">
+          <span key={tag} className="tag" onClick={() => setSearchQuery(tag)}>
             #{tag}
           </span>
         ))}

@@ -50,6 +50,7 @@ export default function App() {
         categories={categories}
         loadStatus={loadStatus}
         errorMessage={errorMessage}
+        setSearchQuery={setSearchQuery}
       />
 
       <Footer />

@@ -20,18 +20,6 @@ export function Controls({
   onCategoryChange,
   onSearchChange,
 }: ControlsProps) {
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const handleInput = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-      debounceRef.current = setTimeout(() => {
-        onSearchChange(e.target.value);
-      }, 120);
-    },
-    [onSearchChange],
-  );
-
   // Count tools per category for badge
   const counts: Record<string, number> = { all: allTools.length };
   allTools.forEach((t) => {
@@ -44,15 +32,19 @@ export function Controls({
         <div className="search-box">
           <input
             type="text"
-            defaultValue={searchQuery}
-            onChange={handleInput}
+            value={searchQuery}
+            onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search tools by name, tag, or description..."
             autoComplete="off"
             aria-label="Search tools"
           />
         </div>
 
-        <div className="categories" role="group" aria-label="Filter by category">
+        <div
+          className="categories"
+          role="group"
+          aria-label="Filter by category"
+        >
           {categories.map((cat) => (
             <button
               key={cat.id}

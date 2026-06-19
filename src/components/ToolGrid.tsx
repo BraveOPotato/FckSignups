@@ -6,6 +6,7 @@ interface ToolGridProps {
   categories: Category[];
   loadStatus: LoadStatus;
   errorMessage: string;
+  setSearchQuery: (query: string) => void;
 }
 
 export function ToolGrid({
@@ -13,6 +14,7 @@ export function ToolGrid({
   categories,
   loadStatus,
   errorMessage,
+  setSearchQuery,
 }: ToolGridProps) {
   if (loadStatus === "loading") {
     return (
@@ -51,6 +53,7 @@ export function ToolGrid({
           tool={tool}
           index={idx + 1}
           category={categories.find((c) => c.id === tool.category)}
+          setSearchQuery={setSearchQuery}
         />
       ))}
     </main>

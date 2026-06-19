@@ -413,7 +413,7 @@ input[type="text"]::placeholder {
     padding: 1.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1px;
+    gap: 0.5rem;
     background: var(--border);
 }
 
@@ -427,6 +427,7 @@ input[type="text"]::placeholder {
 .card {
     background: var(--surface);
     padding: 1.5rem;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.9rem;
@@ -547,6 +548,7 @@ input[type="text"]::placeholder {
 .tag:hover {
     border-color: var(--accent-2);
     color: var(--accent-2);
+    cursor: pointer;
 }
 
 .card-footer {
