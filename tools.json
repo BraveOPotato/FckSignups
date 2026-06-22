@@ -1399,6 +1399,78 @@
       "license": "?",
       "stars": 1193,
       "featured": false
+    },
+    {
+      "id": "convert",
+      "name": "Convert To It",
+      "description": "Truly universal online file converter",
+      "url": "http://convert.to.it/",
+      "category": "utilities",
+      "tags": ["file", "convert"],
+      "github": "https://github.com/p2r3/convert",
+      "license": "GPL-2.0",
+      "stars": 3691,
+      "featured": false
+    },
+    {
+      "id": "texturinator",
+      "name": "Texturinator",
+      "description": "Procedural texture and volume generation toolkit for volumetric rendering, terrain generation",
+      "url": "https://texturinator.buttermilch-dev.de/",
+      "category": "utilities",
+      "tags": ["procedural", "noise", "generator"],
+      "github": "https://github.com/MangoButtermilch/texturinator",
+      "license": "?",
+      "stars": 14,
+      "featured": false
+    },
+    {
+      "id": "gridfinity-layout-tool",
+      "name": "Gridfinity Layout Tool",
+      "description": "A tool for planning drawer organization using the Gridfinity modular storage system",
+      "url": "https://gridfinitylayouttool.com",
+      "category": "utilities",
+      "tags": ["3d-printing", "printing"],
+      "github": "https://github.com/andymai/gridfinity-layout-tool",
+      "license": "AGPL-3.0",
+      "stars": 109,
+      "featured": false
+    },
+    {
+      "id": "tomodoro",
+      "name": "Tomodoro",
+      "description": "A pomodoro web app with PIP mode, white noise generation, tasks and more!",
+      "url": "https://lazy-guy.github.io/tomodoro/",
+      "category": "productivity",
+      "tags": ["pomodoro", "timer", "time-management"],
+      "github": "https://github.com/lazy-guy/tomodoro",
+      "license": "MIT",
+      "stars": 302,
+      "featured": false
+    },
+    {
+      "id": "voidmesh",
+      "name": "VoidMesh",
+      "description": "Local image and video filters with shaders, on an infinite canvas",
+      "url": "https://voidmesh.xyz/",
+      "category": "design",
+      "tags": ["shaders", "dithering", "filters", "image", "picture"],
+      "github": "https://github.com/ogdakke/voidmesh",
+      "license": "MIT",
+      "stars": 3,
+      "featured": false
+    },
+    {
+      "id": "greendolphin",
+      "name": "GreenDolphin",
+      "description": "Recording looper and analysis tool designed for musicians who want to transcribe music or learn songs by ear",
+      "url": "https://greendolph.in",
+      "category": "media",
+      "tags": ["music", "transcription"],
+      "github": "https://github.com/YottaYocta/GreenDolphin",
+      "license": "GPL-3.0",
+      "stars": 4,
+      "featured": false
     }
   ]
 }
