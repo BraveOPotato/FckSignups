@@ -2,7 +2,7 @@
 
 > **Open Source Tools. Zero Bullsh*t.**
 
-A curated collection of open-source tools you can use instantly in your browser — no accounts, no emails, no tracking. Just tools that work.
+A curated collection of open-source tools you can use instantly in your browser. no accounts, no emails, no tracking. Just tools that work.
 
 ---
 
@@ -44,7 +44,7 @@ npm run dev
 | `github` | No | Link to source repository |
 | `license` | No | SPDX license identifier |
 | `stars` | No | GitHub star count (for display) |
-| `featured` | No | Boolean — pins to top |
+| `featured` | No | Boolean; pins to top |
 
 ---
 
