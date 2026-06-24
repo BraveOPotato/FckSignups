@@ -47,6 +47,12 @@
       "name": "Media",
       "icon": "🎬",
       "description": "Edit and create media in-browser"
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "icon": "🎓",
+      "description": "Learn and study without creating accounts"
     }
   ],
   "tools": [
@@ -1643,6 +1649,18 @@
       "github": "https://github.com/bitbof/klecks",
       "license": "MIT",
       "stars": 360,
+      "featured": false
+    },
+    {
+      "id": "agora-cosmica",
+      "name": "Agora Cosmica",
+      "description": "Learn from 30 historical figures through stories, dialogues, and AI conversation. Nonprofit, no signup.",
+      "url": "https://agoracosmica.org",
+      "category": "education",
+      "tags": ["education", "philosophy", "history", "ai-chat", "self-hosted"],
+      "github": "https://github.com/chipmates/agoracosmica",
+      "license": "AGPL-3.0",
+      "stars": 90,
       "featured": false
     }
   ]

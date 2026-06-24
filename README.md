@@ -65,6 +65,7 @@ The default categories are:
 | `utilities` | Utilities | 🛠️ |
 | `data` | Data & Analytics | 📊 |
 | `media` | Media | 🎬 |
+| `education` | Education | 🎓 |
 
 
 ---
