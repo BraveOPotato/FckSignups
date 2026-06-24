@@ -30,7 +30,7 @@ export function useTools(): UseToolsReturn {
     async function load() {
       setLoadStatus("loading");
       // Try loading the local dev JSON for testing.
-      let data = true ? null : await loadTools(DEV_JSON_URL);
+      let data = await loadTools(DEV_JSON_URL);
       let error = "";
       // Try loading data from GITHUB.
       if (!data) data = await loadTools(PROD_JSON_URL);

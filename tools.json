@@ -968,7 +968,7 @@
       "description": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
       "url": "https://www.worldmonitor.app/",
       "category": "data",
-      "tags": ["osint", "news", "monitor", "news"],
+      "tags": ["osint", "news", "monitor"],
       "github": "https://github.com/koala73/worldmonitor?utm_source=worldmonitor&utm_medium=referral&utm_campaign=general",
       "license": "AGPL-3.0-only",
       "stars": 56986,

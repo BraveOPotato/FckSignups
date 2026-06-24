@@ -16,7 +16,7 @@ export function ToolCard({
   setSearchQuery,
 }: ToolCardProps) {
   const cat = category ?? { icon: "◉", name: tool.category };
-
+  console.log(tool.id);
   return (
     <article className="card">
       <div className="card-index">
