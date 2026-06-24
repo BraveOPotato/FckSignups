@@ -1722,6 +1722,18 @@
       "license": "MIT",
       "stars": 352,
       "featured": false
+    },
+    {
+      "id": "simple-icons",
+      "name": "Simple Icons",
+      "description": "Free SVG icons for popular brands. 3000+ icons, public domain, no signup.",
+      "url": "https://simpleicons.org/",
+      "category": "design",
+      "tags": ["icons", "svg", "branding", "icon-library", "open-source"],
+      "github": "https://github.com/simple-icons/simple-icons",
+      "license": "CC0-1.0",
+      "stars": 25272,
+      "featured": false
     }
   ]
 }
