@@ -1,5 +1,4 @@
 import { Header } from "./components/Header";
-import { MarqueeStrip } from "./components/MarqueeStrip";
 import { Controls } from "./components/Controls";
 import { ToolGrid } from "./components/ToolGrid";
 import { Footer } from "./components/Footer";
@@ -30,8 +29,6 @@ export default function App() {
         toolCount={tools.length}
         categoryCount={Math.max(0, categories.length - 1)}
       />
-
-      <MarqueeStrip />
 
       <Controls
         categories={categories}
