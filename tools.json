@@ -2132,7 +2132,7 @@
       "category": "writing",
       "tags": ["ai", "grammar", "editor"],
       "github": "https://github.com/tuton012/editorpilot",
-      "license": "",
+      "license": "?",
       "stars": 1,
       "featured": false
     },
@@ -2144,7 +2144,7 @@
       "category": "education",
       "tags": ["development-course", "full-stack-course"],
       "github": "https://github.com/fullstack-hy2020/fullstack-hy2020.github.io",
-      "license": "NOASSERTION",
+      "license": "CC BY-NC-SA 3.0",
       "stars": 2179,
       "featured": false
     },
