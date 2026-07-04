@@ -81,6 +81,7 @@ body::after {
 }
 
 .toast-container {
+    width: clamp(15rem, 90%, 19rem);
     position: fixed;
     display: flex;
     align-items: center;
@@ -89,7 +90,7 @@ body::after {
     top: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 5%, 1.2rem);
     background-color: var(--surface);
     border: 2px solid var(--accent);
     box-shadow: var(--accent) 0px 0px 52px;
@@ -1206,6 +1207,7 @@ label:has(+ .modal-input[required])::after {
 
 .report-menu-item {
     list-style-type: none;
+    max-width: 9rem;
     margin-top: 1rem;
     cursor: pointer;
     background-color: var(--accent);

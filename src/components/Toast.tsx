@@ -15,7 +15,7 @@ export function Toast({ innerText, onExit }: ToastProps) {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          style={{ width: "1.6rem" }}
+          style={{ minWidth: "1.6rem", maxWidth: "1.6rem" }}
         >
           <path
             strokeLinecap="round"
