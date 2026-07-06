@@ -792,7 +792,8 @@
       "github": "https://github.com/Stirling-Tools/Stirling-PDF",
       "license": "MIT",
       "stars": 84263,
-      "featured": false
+      "featured": false,
+      "notRecommendedReason": "Skippable-signup"
     },
     {
       "id": "opencode-config-builder",
@@ -1565,7 +1566,8 @@
       "github": "https://github.com/megh-bari/pattern-craft",
       "license": "MIT",
       "stars": 3017,
-      "featured": false
+      "featured": false,
+      "notRecommendedReason": "Domain currently down"
     },
     {
       "id": "component-gallery",

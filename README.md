@@ -47,6 +47,7 @@ npm run dev
 | `license` | No | SPDX license identifier |
 | `stars` | No | GitHub star count (for display) |
 | `featured` | No | Boolean; pins to top |
+| `notRecommendedReason` | No | Reason why the entry isn't recommended |
 
 ---
 

@@ -9,6 +9,7 @@ export interface Tool {
   license?: string;
   stars?: number;
   featured?: boolean;
+  notRecommendedReason?: string;
 }
 
 export interface Category {
