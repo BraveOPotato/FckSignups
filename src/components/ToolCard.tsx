@@ -72,7 +72,10 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
           {tool.featured && <span className="featured-badge">Featured</span>}
           {tool.notRecommendedReason !== undefined && (
             <div
-              onClick={() => handleTimedToast()}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleTimedToast();
+              }}
               title={tool.notRecommendedReason}
             >
               <svg
@@ -99,7 +102,14 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
 
         <div className="card-tags">
           {tool.tags.map((tag) => (
-            <span key={tag} className="tag" onClick={() => setSearchQuery(tag)}>
+            <span
+              key={tag}
+              className="tag"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSearchQuery(tag);
+              }}
+            >
               #{tag}
             </span>
           ))}
@@ -122,6 +132,7 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
             <a
               href={tool.github}
               target="_blank"
+              onClick={(e) => e.stopPropagation()}
               rel="noopener noreferrer"
               className="gh-link"
               title="View source on GitHub"
