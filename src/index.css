@@ -480,6 +480,7 @@ input[type="text"]::placeholder {
 
 .card:hover {
     background: var(--surface-2);
+    cursor: pointer;
 }
 .card:hover::after {
     width: 100%;

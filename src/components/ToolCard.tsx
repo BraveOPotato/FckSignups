@@ -50,7 +50,9 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
           (tool.notRecommendedReason !== undefined ? " not-recommended" : "") // if there the key exists in the object
         }
         data-highlighted={reportMode}
-        onClick={() => (reportMode ? handleReport(tool) : null)}
+        onClick={() =>
+          reportMode ? handleReport(tool) : (window.location.href = tool.url)
+        }
       >
         <div className="card-header">
           <div className="card-title-wrap">
