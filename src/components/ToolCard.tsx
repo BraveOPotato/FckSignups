@@ -51,7 +51,9 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
         }
         data-highlighted={reportMode}
         onClick={() =>
-          reportMode ? handleReport(tool) : (window.location.href = tool.url)
+          reportMode
+            ? handleReport(tool)
+            : window.open(tool.url, "_blank", "noopener,noreferrer")
         }
       >
         <div className="card-header">
