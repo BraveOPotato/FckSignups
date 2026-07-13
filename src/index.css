@@ -844,10 +844,14 @@ footer {
     padding-top: 2rem;
     border-top: 1px solid var(--border);
 }
-
 .footer-bottom a {
-    color: var(--accent);
+    color: #ff4d4d;
     text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover {
+    color: #ff6666; 
 }
 
 /* ===== SCROLLBAR ===== */
