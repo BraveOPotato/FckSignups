@@ -24,7 +24,7 @@ export const MODAL_CONFIGS: ModalConfig[] = [
             required: true,
           },
           {
-            type: "text",
+            type: "url",
             name: "url",
             label: "URL",
             placeholder: "https://excalidraw.com",

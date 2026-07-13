@@ -21,10 +21,29 @@ function makeTextField(field: TextField): ReactNode {
   );
 }
 
+function makeURLField(field: TextField): ReactNode {
+  return (
+    <>
+      <label className="modal-label">{field.name}</label>
+      <input
+        className="modal-input"
+        name={field.name}
+        placeholder={field.placeholder}
+        required={field.required}
+        type="url"
+        value={field.value}
+      ></input>
+    </>
+  );
+}
+
 function makeSelectField(field: SelectField): ReactNode {
   // TODO //
   // Implement fetcher for when the field.options is a function
-  if (typeof field.options === "function") return null;
+  if (typeof field.options === "function")
+    throw new Error(
+      "Select field with options of type async callback isn't supported yet.",
+    );
 
   return (
     <>
@@ -69,6 +88,8 @@ export function fieldsMaker(modalConfig: ModalConfig) {
           return makeSelectField(field);
         case "textarea":
           return makeTextAreaField(field);
+        case "url":
+          return makeURLField(field);
       }
     }),
   );

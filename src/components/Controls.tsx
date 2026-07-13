@@ -30,7 +30,7 @@ export function Controls({
       <div className="controls-inner">
         <div className="search-box">
           <input
-            type="text"
+            type="search"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search tools by name, tag, or description..."

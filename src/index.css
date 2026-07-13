@@ -230,7 +230,7 @@ h1 .dotnet {
     font-size: 0.8rem;
     color: white;
     background-color: var(--accent);
-    padding: 0.3rem 0.8rem;
+    padding: 0.4rem 0.8rem;
     border: none;
     border-radius: 2rem;
     box-shadow: 3px 3px 0px rgba(255, 0, 64, 0.3);
@@ -333,7 +333,7 @@ h1 .dotnet {
     pointer-events: none;
 }
 
-input[type="text"] {
+input[type="search"] {
     width: 100%;
     background: var(--surface);
     border: 1px solid var(--border);

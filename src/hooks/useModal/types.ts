@@ -24,7 +24,7 @@ export interface SelectField extends BaseField {
 }
 
 export interface TextField extends BaseField {
-  type: "text";
+  type: "text" | "url";
   value?: string;
   placeholder?: string;
 }
