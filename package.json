@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "npm run generate:llms && tsc && vite build",
+    "preview": "vite preview",
+    "generate:llms": "node scripts/generateLlmsDocs.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
