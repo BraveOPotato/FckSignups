@@ -64,6 +64,7 @@ Rules for adding a tool:
 - No CSS framework — styles live in `src/index.css`.
 - Keep dependencies minimal; this project deliberately avoids bloat.
 - Don't add analytics, tracking, or anything that conflicts with the project philosophy in the README.
+- Record notable site/tooling changes in `CHANGELOG.md` ([Keep a Changelog](https://keepachangelog.com) format) and bump `package.json` per [SemVer](https://semver.org). Routine `tools.json` edits don't need a changelog entry.
 
 ## Publishing note
 
