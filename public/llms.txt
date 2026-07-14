@@ -1,0 +1,23 @@
+# NoSignups
+
+> NoSignups (formerly FckSignups) is an open-source directory of 200+ free tools that run entirely in the browser, require no signup or account, and are open source. Live at https://nosignups.net
+
+The website is a React single-page app, so the HTML served at the root URL contains no tool data. The complete directory is available as machine-readable JSON (linked below) — prefer that over scraping the site.
+
+Categories: Productivity, Design & Graphics, Development, Writing & Docs, Privacy & Security, Utilities, Data & Analytics, Media, Education, Lists.
+
+Each tool entry has the fields: `id`, `name`, `description`, `url`, `category`, `tags`, plus optional `github`, `license`, `stars`, `featured`, and `notRecommendedReason`.
+
+## Data
+
+- [Full tool directory (JSON)](https://raw.githubusercontent.com/BraveOPotato/FckSignups/refs/heads/main/tools.json): every listed tool with description, URL, category, tags, license, and GitHub stars
+
+## Docs
+
+- [README](https://raw.githubusercontent.com/BraveOPotato/FckSignups/refs/heads/main/README.md): project overview, philosophy, tool schema, and contribution guidelines
+- [AGENTS.md](https://nosignups.net/AGENTS.md): instructions for AI coding agents working on the repository
+
+## Contributing
+
+- [Submit a tool](https://github.com/BraveOPotato/FckSignups/issues/new?template=request-to-add-a-tool.md): request to add a no-signup tool to the directory
+- [GitHub repository](https://github.com/BraveOPotato/FckSignups): source code (GPL-3.0)
