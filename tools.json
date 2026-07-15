@@ -2609,6 +2609,18 @@
       "license": "MIT",
       "stars": 4200,
       "featured": false
+    },
+    {
+      "id": "bottleship",
+      "name": "BottleShip",
+      "description": "Run classic Windows games in your browser",
+      "url": "https://bottleship.pages.dev/",
+      "category": "utilities",
+      "tags": ["games", "retro", "windows", "emulator"],
+      "github": "https://github.com/jenissimo/bottleship",
+      "license": "Apache-2.0",
+      "stars": 52,
+      "featured": false
     }
   ]
 }
