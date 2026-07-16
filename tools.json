@@ -2609,6 +2609,78 @@
       "license": "MIT",
       "stars": 4200,
       "featured": false
+    },
+    {
+      "id": "unicon",
+      "name": "Unicon",
+      "description": "Convert any Unicode symbol, emoji, or glyph into a custom favicon",
+      "url": "https://unicon-tool.vercel.app/",
+      "category": "design",
+      "tags": ["favicon-maker"],
+      "github": "https://github.com/waferflopai/unicon-tool",
+      "license": "MIT",
+      "stars": 0,
+      "featured": false
+    },
+    {
+      "id": "sarx",
+      "name": "Sarx",
+      "description": "Enter your stats once and get a full picture of your health: what your numbers mean, where your goals should be, and the knowledge to back it up",
+      "url": "https://www.sarx.app",
+      "category": "utilities",
+      "tags": ["bmi", "wellness"],
+      "github": "https://github.com/Chaissonc/Sarx",
+      "license": "?",
+      "stars": 0,
+      "featured": false
+    },
+    {
+      "id": "design-systems-checklist",
+      "name": "Design Systems Checklist",
+      "description": "checklist to help you plan, build and grow your design system",
+      "url": "https://designsystemchecklist.com/",
+      "category": "design",
+      "tags": ["design-system-checklist", "checklist"],
+      "github": "https://github.com/ardakaracizmeli/design-system-checklist",
+      "license": "?",
+      "stars": 488,
+      "featured": false
+    },
+    {
+      "id": "amicro",
+      "name": "Amicro",
+      "description": "A curated library of premium React micro-interactions and transition components powered by Motion.",
+      "url": "https://amicro.vercel.app/",
+      "category": "development",
+      "tags": ["component-library", "react"],
+      "github": "https://github.com/Subhan-code/Amicro--Micro-transitions-",
+      "license": "?",
+      "stars": 205,
+      "featured": false
+    },
+    {
+      "id": "postbaby",
+      "name": "Postbaby",
+      "description": "Provides a board for quick little notes post-it like",
+      "url": "https://postbaby.org/",
+      "category": "productivity",
+      "tags": ["post-it-notes", "post-it-board"],
+      "github": "https://github.com/markrai/postbaby?ref=selfh.st",
+      "license": "PHU",
+      "stars": 47,
+      "featured": false
+    },
+    {
+      "id": "terminalsexy",
+      "name": "Terminal.sexy",
+      "description": "A terminal theme designer",
+      "url": "https://terminal.sexy",
+      "category": "utilities",
+      "tags": ["terminal", "theme-designer"],
+      "github": "https://github.com/stayradiated/terminal.sexy",
+      "license": "MIT",
+      "stars": 981,
+      "featured": false
     }
   ]
 }
