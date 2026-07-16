@@ -2753,6 +2753,18 @@
       "license": "Apache-2.0",
       "stars": 61,
       "featured": false
+    },
+    {
+      "id": "bytetable",
+      "name": "ByteTable",
+      "description": "A fast, local-first GUI for SQLite, MySQL, PostgreSQL, MsSQL Server, Redis, DynamoDB, MongoDB and Cassandra. Cross-platform, fully native on MacOS, Linux, Windows, no account, no subscription.",
+      "url": "https://rezwanul-haque.github.io/byteTable/",
+      "category": "development",
+      "tags": ["database-gui", "sqlite", "postgresql", "mysql"],
+      "github": "https://github.com/Rezwanul-Haque/byteTable",
+      "license": "Apache-2.0",
+      "stars": 1,
+      "featured": false
     }
   ]
 }
