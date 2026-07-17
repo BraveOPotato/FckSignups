@@ -1,12 +1,13 @@
-import { Header } from "./components/Header";
 import { Controls } from "./components/Controls";
-import { ToolGrid } from "./components/ToolGrid";
 import { Footer } from "./components/Footer";
-import { useTools } from "./hooks/useTools";
+import { Header } from "./components/Header";
 import { Report } from "./components/Report";
-import { ReportProvider } from "./hooks/useReport";
-import { ModalProvider } from "./hooks/useModal";
+import { ScrollToTopButton } from "./components/ScrollToTopButton";
+import { ToolGrid } from "./components/ToolGrid";
 import { MODAL_CONFIGS } from "./constants/ModalConfigs";
+import { ModalProvider } from "./hooks/useModal";
+import { ReportProvider } from "./hooks/useReport";
+import { useTools } from "./hooks/useTools";
 
 export default function App() {
   const {
@@ -58,6 +59,7 @@ export default function App() {
 
           <Report />
         </ReportProvider>
+        <ScrollToTopButton />
         <Footer />
       </ModalProvider>
     </>

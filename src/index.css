@@ -109,6 +109,56 @@ body::after {
     color: var(--text);
 }
 
+/* ===== SCROLL TO TOP BUTTON ===== */
+.scroll-to-top-button {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 1000;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 2px solid var(--accent);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 2px rgba(255, 0, 64, 0.15), 0 10px 30px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.scroll-to-top-button:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 0 2px rgba(255, 0, 64, 0.3), 0 12px 34px rgba(255, 0, 64, 0.25);
+}
+
+.scroll-to-top-button:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 3px;
+}
+
+.scroll-to-top-button:active {
+    scale: .99;
+}
+
+.scroll-to-top-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: currentColor;
+}
+
+@media (max-width: 700px) {
+    .scroll-to-top-button {
+        right: 1rem;
+        bottom: 1rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
 /* ===== HEADER ===== */
 .site-header {
     position: relative;
@@ -148,10 +198,12 @@ body::after {
 }
 
 @keyframes blink {
+
     0%,
     100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.3;
     }
@@ -260,11 +312,13 @@ h1 .dotnet {
 }
 
 @keyframes pulse {
+
     0%,
     100% {
         opacity: 1;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.5;
         transform: scale(0.8);
@@ -294,6 +348,7 @@ h1 .dotnet {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -492,9 +547,11 @@ input[type="text"]::placeholder {
     background: var(--surface-2);
     cursor: pointer;
 }
+
 .card:hover::after {
     width: 100%;
 }
+
 .card:hover .card-index {
     color: var(--accent);
 }
@@ -769,13 +826,16 @@ input[type="text"]::placeholder {
 }
 
 @keyframes dots {
+
     0%,
     20% {
         content: ".";
     }
+
     40% {
         content: "..";
     }
+
     60%,
     100% {
         content: "...";
@@ -844,6 +904,7 @@ footer {
     padding-top: 2rem;
     border-top: 1px solid var(--border);
 }
+
 .footer-bottom a {
     color: #ff4d4d;
     text-decoration: none;
@@ -851,20 +912,23 @@ footer {
 }
 
 .footer-bottom a:hover {
-    color: #ff6666; 
+    color: #ff6666;
 }
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--bg);
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--border);
     border-radius: 0;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--border-light);
 }
@@ -900,38 +964,48 @@ footer {
 }
 
 @keyframes glitch-1 {
+
     0%,
     100% {
         transform: translate(0);
     }
+
     20% {
         transform: translate(-2px, 2px);
     }
+
     40% {
         transform: translate(2px, -2px);
     }
+
     60% {
         transform: translate(-1px, 1px);
     }
+
     80% {
         transform: translate(1px, -1px);
     }
 }
 
 @keyframes glitch-2 {
+
     0%,
     100% {
         transform: translate(0);
     }
+
     20% {
         transform: translate(2px, -2px);
     }
+
     40% {
         transform: translate(-2px, 2px);
     }
+
     60% {
         transform: translate(1px, -1px);
     }
+
     80% {
         transform: translate(-1px, 1px);
     }
@@ -956,6 +1030,7 @@ footer {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -980,6 +1055,7 @@ footer {
         transform: translateY(12px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -1223,9 +1299,11 @@ label:has(+ .modal-input[required])::after {
 .modal-panel::-webkit-scrollbar {
     width: 4px;
 }
+
 .modal-panel::-webkit-scrollbar-track {
     background: var(--bg);
 }
+
 .modal-panel::-webkit-scrollbar-thumb {
     background: var(--border-light);
 }
@@ -1260,6 +1338,7 @@ label:has(+ .modal-input[required])::after {
         bottom: 11%;
         right: 15%;
     }
+
     100% {
         bottom: 10%;
         right: 15%;
