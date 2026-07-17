@@ -7,14 +7,14 @@ export function Footer() {
       <footer>
         <div className="footer-grid">
           <div className="footer-col">
-            <h4>About</h4>
+            <h3>About</h3>
             <p>
               FckSignups is a curated directory of tools that respect your time.
               No signups, no spam, no dark patterns.
             </p>
           </div>
           <div className="footer-col">
-            <h4>Contribute</h4>
+            <h3>Contribute</h3>
             <p>
               <button
                 className="footer-link-btn"
@@ -34,7 +34,7 @@ export function Footer() {
             </p>
           </div>
           <div className="footer-col">
-            <h4>Legal</h4>
+            <h3>Legal</h3>
             <p>
               All tools are independently verified. We don&apos;t track you. We
               don&apos;t sell data. We don&apos;t care about your email.
