@@ -89,6 +89,14 @@ Don't be afraid to critique.
 
 ---
 
+## Featured 
+
+> Why are some tools featured? 
+
+It's simple. We're at 200+ tools, and a lot of them are similar. To break the homogeneity, I flag the unique ones to the top. This is biased since "what is uniqueness?" and I simply define that as a tool that is different from the other ones. Whether it's outstanding quality, or simply a very unique idea. 
+
+---
+
 ## License
 
 The FckSignups directory code is released under the **GPL-3.0 License**.

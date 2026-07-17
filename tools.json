@@ -180,7 +180,7 @@
       "github": "https://github.com/OpenCut-app/OpenCut",
       "license": "MIT",
       "stars": 72004,
-      "featured": false
+      "featured": true
     },
     {
       "id": "svg-edit",
@@ -594,7 +594,7 @@
       "github": "https://github.com/AppsYogi-com/ComposeYogi",
       "license": "MIT",
       "stars": 100,
-      "featured": false
+      "featured": true
     },
     {
       "id": "drumhaus",
@@ -1087,7 +1087,7 @@
       "github": "https://github.com/pkalogiros/AudioMass",
       "license": "MIT",
       "stars": 2860,
-      "featured": false
+      "featured": true
     },
     {
       "id": "sqlime",
@@ -1183,7 +1183,7 @@
       "github": "https://github.com/hoppscotch/hoppscotch",
       "license": "MIT",
       "stars": 79809,
-      "featured": false
+      "featured": true
     },
     {
       "id": "json-crack",
@@ -1351,7 +1351,7 @@
       "github": "https://github.com/alam00000/bentopdf/",
       "license": "AGPL-3.0",
       "stars": 14083,
-      "featured": false
+      "featured": true
     },
     {
       "id": "shadestudio",
@@ -1483,7 +1483,7 @@
       "github": "https://github.com/enonforetsam/fluid",
       "license": "MIT",
       "stars": 37,
-      "featured": false
+      "featured": true
     },
     {
       "id": "screenshot-studio",
@@ -1495,7 +1495,7 @@
       "github": "https://github.com/KartikLabhshetwar/screenshot-studio",
       "license": "Apache-2.0",
       "stars": 734,
-      "featured": false
+      "featured": true
     },
     {
       "id": "icon-maker",
@@ -1836,7 +1836,7 @@
       "github": "https://github.com/aayushdutt/midee",
       "license": "?",
       "stars": 26,
-      "featured": false
+      "featured": true
     },
     {
       "id": "dohabit",
@@ -1985,7 +1985,7 @@
       "github": "https://github.com/logseq/logseq",
       "license": "AGPL-3.0",
       "stars": 43907,
-      "featured": false
+      "featured": true
     },
     {
       "id": "svgomg",
@@ -2057,7 +2057,7 @@
       "github": "https://github.com/gskinner/regexr/",
       "license": "GPL-3.0",
       "stars": 10343,
-      "featured": false
+      "featured": true
     },
     {
       "id": "webtorio",
@@ -2069,7 +2069,7 @@
       "github": "https://github.com/webtor-io/web-ui",
       "license": "MIT",
       "stars": 62,
-      "featured": false
+      "featured": true
     },
     {
       "id": "quickrefme",
@@ -2201,7 +2201,7 @@
       "github": "https://github.com/readest/readest",
       "license": "AGPL-3.0",
       "stars": 22391,
-      "featured": false
+      "featured": true
     },
     {
       "id": "gitfut",
@@ -2345,7 +2345,7 @@
       "github": "https://github.com/CristianOlivera1/openvid",
       "license": "NC",
       "stars": 1538,
-      "featured": false
+      "featured": true
     },
     {
       "id": "faviconapi",
@@ -2692,7 +2692,7 @@
       "github": "https://github.com/rimzzlabs/lanjut",
       "license": "AGPL-3.0",
       "stars": 37,
-      "featured": false
+      "featured": true
     },
     {
       "id": "markdown2pdf",
@@ -2752,7 +2752,7 @@
       "github": "https://github.com/jenissimo/bottleship",
       "license": "Apache-2.0",
       "stars": 61,
-      "featured": false
+      "featured": true
     }
   ]
 }
