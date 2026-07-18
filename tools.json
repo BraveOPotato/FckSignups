@@ -2753,6 +2753,18 @@
       "license": "Apache-2.0",
       "stars": 61,
       "featured": true
+    },
+    {
+      "id": "deskemy",
+      "name": "Deskemy",
+      "description": "Local, offline player for downloaded video courses that organizes them into a browsable library with playback, progress tracking, search, and study tools",
+      "url": "https://github.com/NFRohan/Deskemy",
+      "category": "education",
+      "tags": ["offline", "video-courses", "course-player", "study"],
+      "github": "https://github.com/NFRohan/Deskemy",
+      "license": "?",
+      "stars": 0,
+      "featured": false
     }
   ]
 }
