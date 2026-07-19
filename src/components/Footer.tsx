@@ -15,15 +15,13 @@ export function Footer() {
           </div>
           <div className="footer-col">
             <h3>Contribute</h3>
-            <p>
+            <div className="contribute-buttons">
               <button
                 className="footer-btn"
                 onClick={() => showModalWithID("submit-tool")}
               >
                 Submit a tool
               </button>
-            </p>
-            <p>
               <a
                 href="https://github.com/BraveOPotato/FckSignups/issues/new"
                 target="_blank"
@@ -31,7 +29,7 @@ export function Footer() {
               >
                 Report an issue
               </a>
-            </p>
+            </div>
           </div>
           <div className="footer-col">
             <h3>Legal</h3>

@@ -920,7 +920,8 @@ footer {
 }
 
 .footer-col p,
-.footer-col a {
+.footer-col a,
+.footer-col button {
     font-size: 0.85rem;
     color: var(--text-dim);
     text-decoration: none;
@@ -929,6 +930,16 @@ footer {
 
 .footer-col a:hover {
     color: var(--accent);
+}
+
+.contribute-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contribute-buttons>* {
+    width: fit-content;
 }
 
 .footer-bottom {
