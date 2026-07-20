@@ -104,8 +104,9 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
 
         <div className="card-tags">
           {tool.tags.map((tag) => (
-            <span
+            <button
               key={tag}
+              type="button"
               className="tag"
               onClick={(e) => {
                 e.stopPropagation();
@@ -113,7 +114,7 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
               }}
             >
               #{tag}
-            </span>
+            </button>
           ))}
         </div>
 
