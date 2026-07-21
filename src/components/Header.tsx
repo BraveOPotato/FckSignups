@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { FALLBACK_REPO_STARS } from "../constants/fallbackData";
+import { REPO_URL } from "../constants/global";
 import { useModal } from "../hooks/useModal";
 
 interface HeaderProps {
@@ -13,12 +15,10 @@ export function Header({
   setSearchQuery,
 }: HeaderProps) {
   const { showModalWithID } = useModal();
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState("????");
 
   useEffect(() => {
-    fetch("https://api.github.com/repos/BraveOPotato/FckSignups")
-      .then((data) => data.json())
-      .then((json) => setStarsCount(json.stargazers_count));
+    setRepoStars(setStarsCount);
   }, []);
 
   return (
@@ -72,15 +72,49 @@ export function Header({
             >
               SUBMIT A TOOL
             </button>
-            <div className="stat-row">
-              {String(toolCount).padStart(3, "0")} TOOLS LOADED
-            </div>
-            <div className="stat-row">
-              {String(categoryCount).padStart(3, "0")} CATEGORIES
+
+            <div className="stats">
+              <div className="stat-row">
+                <span className="white">
+                  {String(toolCount).padStart(3, "0")}
+                </span>{" "}
+                TOOLS LOADED
+              </div>
+              •
+              <div className="stat-row">
+                <span className="white">
+                  {String(categoryCount).padStart(3, "0")}
+                </span>{" "}
+                CATEGORIES
+              </div>
             </div>
           </div>
         </div>
       </header>
     </>
   );
+}
+
+interface RepoData {
+  stargazers_count: number;
+}
+
+async function fetchRepoData(): Promise<RepoData | null> {
+  try {
+    const response = await fetch(REPO_URL);
+
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const data: RepoData = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Failed to fetch repo's data: ${error}`);
+    return null;
+  }
+}
+
+async function setRepoStars(setStarsCount: Dispatch<SetStateAction<string>>) {
+  const repo = await fetchRepoData();
+  const repoStars = repo?.stargazers_count?.toString() || FALLBACK_REPO_STARS;
+  setStarsCount(repoStars);
 }

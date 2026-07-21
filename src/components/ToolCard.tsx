@@ -1,10 +1,10 @@
-import type { Tool, Category } from "../types";
-import { ExternalIcon, GitHubIcon, StarIcon } from "../constants/icons";
-import { formatStars } from "../utils/formatters";
-import { useReport } from "../hooks/useReport";
-import { useModal } from "../hooks/useModal";
-import { Toast } from "./Toast";
 import { useState } from "react";
+import { ExternalIcon, GitHubIcon, StarIcon } from "../constants/icons";
+import { useModal } from "../hooks/useModal";
+import { useReport } from "../hooks/useReport";
+import type { Category, Tool } from "../types";
+import { formatStars } from "../utils/formatters";
+import { Toast } from "./Toast";
 
 interface ToolCardProps {
   tool: Tool;
@@ -102,20 +102,23 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
 
         <p className="card-desc">{tool.description}</p>
 
-        <div className="card-tags">
+        <ul className="card-tags">
           {tool.tags.map((tag) => (
-            <span
-              key={tag}
-              className="tag"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSearchQuery(tag);
-              }}
-            >
-              #{tag}
-            </span>
+            <li key={tag}>
+              <button
+                type="button"
+                className="tag"
+                aria-label={`Filter tools by ${tag.replace(/-/g, " ")}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSearchQuery(tag);
+                }}
+              >
+                #{tag}
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="card-footer">
           <div className="footer-left">

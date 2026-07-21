@@ -1,10 +1,10 @@
-import { useState, useEffect, useMemo } from "react";
-import type { Tool, Category, LoadStatus, ToolsData } from "../types";
+import { useEffect, useMemo, useState } from "react";
 import {
-  FALLBACK_DATA,
   DEV_JSON_URL,
+  FALLBACK_DATA,
   PROD_JSON_URL,
 } from "../constants/fallbackData";
+import type { Category, LoadStatus, Tool, ToolsData } from "../types";
 
 interface UseToolsReturn {
   tools: Tool[];
@@ -29,11 +29,16 @@ export function useTools(): UseToolsReturn {
   useEffect(() => {
     async function load() {
       setLoadStatus("loading");
-      // Try loading the local dev JSON for testing.
-      let data = await loadTools(DEV_JSON_URL);
+      let data: ToolsData | null = null;
       let error = "";
-      // Try loading data from GITHUB.
+
+      if (import.meta?.env?.DEV) {
+        data = await loadTools(DEV_JSON_URL);
+      }
+
+      // Try loading data from GITHUB if not loaded yet.
       if (!data) data = await loadTools(PROD_JSON_URL);
+
       // If all fails, load fallback data
       if (!data) {
         data = FALLBACK_DATA;

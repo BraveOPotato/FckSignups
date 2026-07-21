@@ -1,3 +1,4 @@
+import { ExternalIcon } from "../constants/icons";
 import { useModal } from "../hooks/useModal";
 
 export function Footer() {
@@ -15,23 +16,21 @@ export function Footer() {
           </div>
           <div className="footer-col">
             <h3>Contribute</h3>
-            <p>
+            <div className="contribute-buttons">
               <button
-                className="footer-link-btn"
+                className="footer-btn"
                 onClick={() => showModalWithID("submit-tool")}
               >
                 Submit a tool
               </button>
-            </p>
-            <p>
               <a
                 href="https://github.com/BraveOPotato/FckSignups/issues/new"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Report an issue
+                Report an issue <ExternalIcon />
               </a>
-            </p>
+            </div>
           </div>
           <div className="footer-col">
             <h3>Legal</h3>

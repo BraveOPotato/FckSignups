@@ -78,6 +78,10 @@ body::after {
             rgba(0, 0, 0, 0.3) 4px);
 }
 
+.white {
+    color: #fff;
+}
+
 .toast-container {
     max-width: 19rem;
     position: fixed;
@@ -179,6 +183,15 @@ body::after {
     margin-bottom: 2rem;
 }
 
+.stars-button-container .stars-button {
+    text-decoration: none;
+    width: 74px;
+    text-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .stars-button-container .stars-button:hover .star-svg {
     color: black;
 }
@@ -187,6 +200,8 @@ body::after {
     aspect-ratio: 1/1;
     color: var(--text);
     width: 0.7rem;
+    margin-left: 4px;
+    transition-duration: 0.3s;
 }
 
 .header-grid {
@@ -312,6 +327,13 @@ h1 .dotnet {
     gap: 0.5rem;
 }
 
+.stats {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .2rem;
+}
+
 .stat-dot {
     width: 6px;
     height: 6px;
@@ -410,6 +432,18 @@ input[type="search"] {
     transition: all 0.2s;
 }
 
+input[type="search"]::placeholder {
+    transition: color 0.2s;
+}
+
+input[type="search"]:focus::placeholder {
+    color: var(--text);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
 input[type="text"]:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(255, 0, 64, 0.1);
@@ -436,31 +470,33 @@ input[type="text"]::placeholder {
     font-size: 0.8rem;
     font-weight: 500;
     font-family: var(--font-mono);
-    transition: all 0.15s;
     user-select: none;
     position: relative;
     overflow: hidden;
+    transition: color 0.15s, border-color 0.15s .35s;
+}
+
+.cat-btn:hover {
+    color: var(--text);
+    border-color: var(--accent);
+    transition: color 0.15s, border-color 0.15s;
 }
 
 .cat-btn::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
+    translate: -101% 0;
     width: 100%;
     height: 100%;
     background: var(--accent);
-    transition: left 0.2s;
     z-index: -1;
-}
-
-.cat-btn:hover {
-    color: var(--text);
-    border-color: var(--accent);
+    transition: translate .2s .2s, opacity .2s;
 }
 
 .cat-btn:hover::before {
-    left: 0;
+    translate: 0;
     opacity: 0.1;
 }
 
@@ -473,6 +509,10 @@ input[type="text"]::placeholder {
 
 .cat-btn.active::before {
     display: none;
+}
+
+.cat-btn span:first-of-type {
+    margin-right: 0.3rem;
 }
 
 .cat-btn .count {
@@ -604,10 +644,6 @@ input[type="text"]::placeholder {
     gap: 0.75rem;
 }
 
-.card-header svg {
-    cursor: help;
-}
-
 .card-title-wrap {
     display: flex;
     flex-direction: row;
@@ -714,6 +750,7 @@ input[type="text"]::placeholder {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
+    list-style: none;
 }
 
 .tag {
@@ -723,6 +760,7 @@ input[type="text"]::placeholder {
     padding: 0.15rem 0.4rem;
     border: 1px solid var(--border);
     border-radius: 2px;
+    background-color: transparent;
     transition: all 0.15s;
 }
 
@@ -730,6 +768,10 @@ input[type="text"]::placeholder {
     border-color: var(--accent-2);
     color: var(--accent-2);
     cursor: pointer;
+}
+
+.tag:active {
+    scale: .99;
 }
 
 .card-footer {
@@ -895,7 +937,8 @@ footer {
 }
 
 .footer-col p,
-.footer-col a {
+.footer-col a,
+.footer-col button {
     font-size: 0.85rem;
     color: var(--text-dim);
     text-decoration: none;
@@ -904,6 +947,28 @@ footer {
 
 .footer-col a:hover {
     color: var(--accent);
+}
+
+.contribute-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contribute-buttons>* {
+    width: fit-content;
+}
+
+.contribute-buttons>a {
+    display: flex;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.contribute-buttons>a>svg {
+    width: .7rem;
+    position: relative;
+    left: 2px;
 }
 
 .footer-bottom {
@@ -1289,18 +1354,16 @@ label:has(+ .modal-input[required])::after {
 }
 
 /* Footer link button */
-.footer-link-btn {
+.footer-btn {
     background: none;
     border: none;
     color: inherit;
     font: inherit;
     cursor: pointer;
     padding: 0;
-    text-decoration: underline;
-    text-underline-offset: 3px;
 }
 
-.footer-link-btn:hover {
+.footer-btn:hover {
     color: var(--accent);
 }
 

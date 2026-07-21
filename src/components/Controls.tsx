@@ -69,8 +69,15 @@ export function Controls({
         </div>
 
         <div className="results-count" aria-live="polite">
-          SHOWING {String(filteredCount).padStart(2, "0")} OF{" "}
-          {String(allTools.length).padStart(2, "0")} TOOLS
+          SHOWING{" "}
+          <span className="white">
+            {String(filteredCount).padStart(2, "0")}
+          </span>{" "}
+          OF{" "}
+          <span className="white">
+            {String(allTools.length).padStart(2, "0")}
+          </span>{" "}
+          TOOLS
         </div>
       </div>
     </div>
