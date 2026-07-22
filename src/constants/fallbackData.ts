@@ -234,4 +234,4 @@ export const FALLBACK_DATA: ToolsData = {
 export const DEV_JSON_URL = "../../../tools.json";
 export const PROD_JSON_URL =
   "https://raw.githubusercontent.com/BraveOPotato/FckSignups/refs/heads/main/tools.json";
-export const FALLBACK_REPO_STARS = "1.8k+";
+export const FALLBACK_REPO_STARS = "1.9k+";

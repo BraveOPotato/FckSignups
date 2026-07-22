@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/Inter/Inter-VariableFont_opsz,wght.woff2') format('woff2'),
+    url('/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/Space-Grotesk/SpaceGrotesk-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Space-Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+}
