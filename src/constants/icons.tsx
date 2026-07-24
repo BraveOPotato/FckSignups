@@ -1,6 +1,6 @@
-export function ExternalIcon({ className }: { className?: string }) {
+export function ExternalIcon() {
   return (
-    <svg aria-hidden="true" className={className}>
+    <svg aria-hidden="true">
       <use href="/icons-sprite.svg#external-link" />
     </svg>
   );

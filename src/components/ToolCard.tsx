@@ -101,7 +101,9 @@ export function ToolCard({ tool, category, setSearchQuery }: ToolCardProps) {
                 }}
                 title={tool.notRecommendedReason}
               >
-                <ExternalIcon className="feather feather-alert-circle" />
+                <svg className="feather-alert-circle" aria-hidden="true">
+                  <use href="/icons-sprite.svg#exclamation-mark" />
+                </svg>
               </div>
             )}
           </div>

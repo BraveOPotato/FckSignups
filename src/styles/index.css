@@ -112,6 +112,7 @@ body::after {
     cursor: pointer;
     transition-duration: 0.3s;
     width: 1.6rem;
+    height: 1.6rem;
 }
 
 .close-toast-button svg:hover {
@@ -872,6 +873,11 @@ input[type="text"]::placeholder {
     text-decoration: line-through;
 }
 
+.feather-alert-circle {
+    width: 24px;
+    height: 24px;
+}
+
 .card-desc {
     color: var(--text-dim);
     font-size: 0.9rem;
@@ -1100,6 +1106,7 @@ footer {
 
 .contribute-buttons>a>svg {
     width: .7rem;
+    height: .7rem;
     position: relative;
     left: 2px;
 }
@@ -1528,6 +1535,8 @@ label:has(+ .modal-input[required])::after {
 
 .report-button svg {
     vertical-align: center;
+    width: 24px;
+    height: 24px;
 }
 
 .report-button:hover svg,
