@@ -39,7 +39,6 @@ export function useTools(): UseToolsReturn {
       let data: ToolsData | null = null;
       let error = "";
 
-      console.log(import.meta.env.DEV)
       if (import.meta?.env?.DEV) {
         data = await loadTools(DEV_JSON_URL);
       }

@@ -54,8 +54,8 @@ export function ScrollToTopButton() {
       aria-label="Scroll to top"
       title="Scroll to top"
     >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 5 4 13l1.4 1.4L11 8.8V20h2V8.8l5.6 5.6L20 13z" />
+      <svg aria-hidden="true">
+        <use href="/icons-sprite.svg#arrow-up" />
       </svg>
     </button>
   );
