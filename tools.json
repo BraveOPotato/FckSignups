@@ -3968,6 +3968,16 @@
       "stars": 114600,
       "addedAt": "2026-07-26",
       "section": "editors-pick"
+    },
+    {
+      "id": "opendevutils",
+      "name": "OpenDevUtils",
+      "description": "A privacy-first collection of developer tools that runs entirely locally on your device.",
+      "url": "https://opendevutils.com",
+      "category": "utilities",
+      "tags": [],
+      "github": "https://github.com/gammabowl/opendevutils",
+      "addedAt": "2026-07-27"
     }
   ]
 }
