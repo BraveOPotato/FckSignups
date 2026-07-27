@@ -6,8 +6,10 @@ interface ControlsProps {
   searchQuery: string;
   allTools: Tool[];
   filteredCount: number;
+  sortBy: string;
   onCategoryChange: (id: string) => void;
   onSearchChange: (q: string) => void;
+  onSortChange: (sort: string) => void;
 }
 
 export function Controls({
@@ -16,11 +18,14 @@ export function Controls({
   searchQuery,
   allTools,
   filteredCount,
+  sortBy,
   onCategoryChange,
   onSearchChange,
+  onSortChange,
 }: ControlsProps) {
   // Count tools per category for badge
   const counts: Record<string, number> = { all: allTools.length };
+
   allTools.forEach((t) => {
     counts[t.category] = (counts[t.category] ?? 0) + 1;
   });
@@ -68,16 +73,33 @@ export function Controls({
           })}
         </div>
 
-        <div className="results-count" aria-live="polite">
-          SHOWING{" "}
-          <span className="white">
-            {String(filteredCount).padStart(2, "0")}
-          </span>{" "}
-          OF{" "}
-          <span className="white">
-            {String(allTools.length).padStart(2, "0")}
-          </span>{" "}
-          TOOLS
+        <div className="results-toolbar">
+          <div className="results-count" aria-live="polite">
+            SHOWING{" "}
+            <span className="white">
+              {String(filteredCount).padStart(2, "0")}
+            </span>{" "}
+            OF{" "}
+            <span className="white">
+              {String(allTools.length).padStart(2, "0")}
+            </span>{" "}
+            TOOLS
+          </div>
+
+          <div className="sort-controls">
+            <label htmlFor="sort-select">SORT BY</label>
+
+            <select
+              id="sort-select"
+              className="sort-select"
+              value={sortBy}
+              onChange={(e) => onSortChange(e.target.value)}
+            >
+              <option value="default">Default</option>
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

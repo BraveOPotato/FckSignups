@@ -1623,3 +1623,51 @@ label:has(+ .modal-input[required])::after {
     background-color: var(--accent);
     text-align: left;
 }
+
+.results-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: #8a8a8a;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sort-select {
+  background: #111;
+  color: #fff;
+
+  border: 1px solid #333;
+  border-radius: 4px;
+
+  padding: 0.35rem 0.6rem;
+
+  font: inherit;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease;
+}
+
+.sort-select:hover {
+  border-color: #666;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #ff2d55;
+}
+
+.sort-select option {
+  background: #111;
+  color: #fff;
+}

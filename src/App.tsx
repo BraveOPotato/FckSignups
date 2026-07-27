@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Controls } from "./components/Controls";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
@@ -25,6 +26,8 @@ export default function App() {
     setActiveCategory,
   } = useTools();
 
+  const [sortBy, setSortBy] = useState("default");
+
   const activeCat = categories.find((c) => c.id === activeCategory);
 
   return (
@@ -42,9 +45,12 @@ export default function App() {
           searchQuery={searchQuery}
           allTools={tools}
           filteredCount={filteredTools.length}
+          sortBy={sortBy}
           onCategoryChange={setActiveCategory}
           onSearchChange={setSearchQuery}
+          onSortChange={setSortBy}
         />
+
         {activeCat && activeCat.id !== "all" && (
           <div className="section-divider">
             {`${activeCat.icon} ${activeCat.name}`}
@@ -61,11 +67,13 @@ export default function App() {
             errorMessage={errorMessage}
             searchQuery={searchQuery}
             activeCategory={activeCategory}
+            sortBy={sortBy}
             setSearchQuery={setSearchQuery}
           />
 
           <Report />
         </ReportProvider>
+
         <ScrollToTopButton />
         <Footer />
       </ModalProvider>
