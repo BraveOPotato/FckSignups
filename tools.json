@@ -594,24 +594,6 @@
       "section": "meets-criteria"
     },
     {
-      "id": "crontab-guru",
-      "name": "Crontab Guru",
-      "description": "Quick and simple editor for cron schedule expressions with human-readable output.",
-      "url": "https://crontab.guru",
-      "category": "development",
-      "tags": [
-        "cron",
-        "scheduler",
-        "crontab",
-        "devtools"
-      ],
-      "github": "https://github.com/crontab-guru/crontab.guru",
-      "license": "GPL-3.0",
-      "stars": 7000,
-      "addedAt": "2026-07-28",
-      "section": "editors-pick"
-    },
-    {
       "id": "cryptgeon",
       "name": "Cryptgeon",
       "description": "Send fully encrypted secure notes or files with custom expiration",
@@ -3986,6 +3968,44 @@
       "stars": 73,
       "addedAt": "2026-07-26",
       "section": "meets-criteria"
+    },
+    {
+      "id": "mermaid-live-editor",
+      "name": "Mermaid Live Editor",
+      "description": "Edit, preview and share mermaid charts and diagrams directly in the browser.",
+      "url": "https://mermaid.live",
+      "category": "development",
+      "tags": [
+        "mermaid",
+        "diagram",
+        "chart",
+        "markdown",
+        "visual"
+      ],
+      "github": "https://github.com/mermaid-js/mermaid-live-editor",
+      "license": "MIT",
+      "stars": 6710,
+      "addedAt": "2026-07-28",
+      "section": "editors-pick"
+    },
+    {
+      "id": "transform-tools",
+      "name": "Transform.tools",
+      "description": "Convert data structures between JSON, TypeScript, Go, GraphQL, Kotlin, Rust, and many other formats.",
+      "url": "https://transform.tools",
+      "category": "development",
+      "tags": [
+        "converter",
+        "json",
+        "typescript",
+        "graphql",
+        "format"
+      ],
+      "github": "https://github.com/ritz078/transform",
+      "license": "MIT",
+      "stars": 9186,
+      "addedAt": "2026-07-28",
+      "section": "editors-pick"
     }
   ]
 }
