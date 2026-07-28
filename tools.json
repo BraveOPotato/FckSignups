@@ -3968,6 +3968,76 @@
       "stars": 114600,
       "addedAt": "2026-07-26",
       "section": "editors-pick"
+    },
+    {
+      "id": "crontab-guru",
+      "name": "Crontab Guru",
+      "description": "Quick and simple editor for cron schedule expressions with human-readable output.",
+      "url": "https://crontab.guru",
+      "category": "development",
+      "tags": [
+        "cron",
+        "scheduler",
+        "crontab",
+        "devtools"
+      ],
+      "license": "GPL-3.0",
+      "stars": 7000,
+      "addedAt": "2026-07-28",
+      "section": "editors-pick"
+    },
+    {
+      "id": "devdocs",
+      "name": "DevDocs",
+      "description": "Fast, searchable, offline API documentation browser combining multiple docs in one place.",
+      "url": "https://devdocs.io",
+      "category": "development",
+      "tags": [
+        "documentation",
+        "api",
+        "reference",
+        "offline"
+      ],
+      "github": "https://github.com/freeCodeCamp/devdocs",
+      "license": "MPL-2.0",
+      "stars": 39230,
+      "addedAt": "2026-07-28",
+      "section": "featured"
+    },
+    {
+      "id": "excalidraw",
+      "name": "Excalidraw",
+      "description": "Virtual whiteboard for sketching hand-drawn like diagrams with collaboration support.",
+      "url": "https://excalidraw.com",
+      "category": "design",
+      "tags": [
+        "whiteboard",
+        "diagram",
+        "drawing",
+        "collaboration",
+        "sketch"
+      ],
+      "github": "https://github.com/excalidraw/excalidraw",
+      "license": "MIT",
+      "stars": 128508,
+      "addedAt": "2026-07-28",
+      "section": "featured"
+    },
+    {
+      "id": "remove-bg",
+      "name": "Remove.bg",
+      "description": "Remove image backgrounds automatically with AI — no signup needed for single images.",
+      "url": "https://www.remove.bg",
+      "category": "media",
+      "tags": [
+        "background-removal",
+        "image-editing",
+        "ai",
+        "photo"
+      ],
+      "license": "Proprietary",
+      "stars": 0,
+      "addedAt": "2026-07-28"
     }
   ]
 }
