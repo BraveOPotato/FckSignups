@@ -39,7 +39,7 @@ export default {
       case "/suggest-tool":
         return await handleSuggestTool(request, env, origin);
       default:
-        return jsonResponse({ error: "Unknwon URL" }, 404, origin);
+        return jsonResponse({ error: "Unknown URL" }, 404, origin);
     }
   },
 };
