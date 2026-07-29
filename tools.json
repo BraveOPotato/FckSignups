@@ -2767,18 +2767,6 @@
       "featured": false
     },
     {
-      "id": "namer-ui",
-      "name": "Namer UI",
-      "description": "Reusable React and Next.js UI components for building modern interfaces.",
-      "url": "https://namer-ui.vercel.app",
-      "category": "development",
-      "tags": ["ui-components", "react", "nextjs", "typescript"],
-      "github": "https://github.com/Northstrix/namer-ui",
-      "license": "MIT",
-      "stars": 23,
-      "featured": false
-    },
-    {
       "id": "kerach-go",
       "name": "Kerach Go",
       "description": "A tiny text shader tool packed into a single HTML file.",
@@ -2812,42 +2800,6 @@
       "github": "https://github.com/Northstrix/nof-go",
       "license": "MIT",
       "stars": 1,
-      "featured": false
-    },
-    {
-      "id": "namer-ui-for-vue",
-      "name": "Namer UI for Vue",
-      "description": "Reusable TypeScript and CSS components for Vue 3 apps.",
-      "url": "https://namer-ui-for-vue.netlify.app/",
-      "category": "development",
-      "tags": ["vue", "ui-components", "typescript", "css"],
-      "github": "https://github.com/Northstrix/namer-ui-for-vue",
-      "license": "MIT",
-      "stars": 2,
-      "featured": false
-    },
-    {
-      "id": "free-english-test",
-      "name": "Free English Test",
-      "description": "A free English proficiency test for learners and self-assessment.",
-      "url": "https://free-english-test.vercel.app/",
-      "category": "education",
-      "tags": ["language-test", "english", "quiz", "education"],
-      "github": "https://github.com/Northstrix/free-english-test",
-      "license": "MIT",
-      "stars": 1,
-      "featured": false
-    },
-    {
-      "id": "free-elementary-italian-test",
-      "name": "Free Elementary Italian Test",
-      "description": "A free elementary Italian proficiency test built with modern web tools.",
-      "url": "https://free-elementary-italian-test.netlify.app/",
-      "category": "education",
-      "tags": ["language-test", "italian", "quiz", "education"],
-      "github": "https://github.com/Northstrix/free-elementary-italian-test",
-      "license": "MIT",
-      "stars": 0,
       "featured": false
     },
     {
@@ -2918,6 +2870,18 @@
       "category": "privacy",
       "tags": ["encryption", "file-security", "browser-app", "aes"],
       "github": "https://github.com/Northstrix/In-Browser-File-Encrypter",
+      "license": "MIT",
+      "stars": 0,
+      "featured": false
+    },
+    {
+      "id": "esplendente",
+      "name": "Esplendente",
+      "description": "An authentic Spanish learning app.",
+      "url": "https://esplendente.netlify.app/",
+      "category": "education",
+      "tags": ["language-learning", "spanish", "education", "study-app"],
+      "github": "https://github.com/Northstrix/esplendente",
       "license": "MIT",
       "stars": 0,
       "featured": false
