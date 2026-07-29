@@ -3970,25 +3970,6 @@
       "section": "editors-pick"
     },
     {
-      "id": "mermaid-live-editor",
-      "name": "Mermaid Live Editor",
-      "description": "Edit, preview and share mermaid charts and diagrams directly in the browser.",
-      "url": "https://mermaid.live",
-      "category": "development",
-      "tags": [
-        "mermaid",
-        "diagram",
-        "chart",
-        "markdown",
-        "visual"
-      ],
-      "github": "https://github.com/mermaid-js/mermaid-live-editor",
-      "license": "MIT",
-      "stars": 6710,
-      "addedAt": "2026-07-28",
-      "section": "editors-pick"
-    },
-    {
       "id": "transform-tools",
       "name": "Transform.tools",
       "description": "Convert data structures between JSON, TypeScript, Go, GraphQL, Kotlin, Rust, and many other formats.",
@@ -4005,7 +3986,7 @@
       "license": "MIT",
       "stars": 9186,
       "addedAt": "2026-07-28",
-      "section": "editors-pick"
+      "section": "meets-criteria"
     }
   ]
 }
