@@ -1167,7 +1167,7 @@
       "id": "niolesk",
       "name": "Niolesk",
       "description": "Edit diagrams from textual descriptions!",
-      "url": "niolesk.top",
+      "url": "https://niolesk.top",
       "category": "development",
       "tags": [
         "diagram",
@@ -3968,6 +3968,25 @@
       "stars": 114600,
       "addedAt": "2026-07-26",
       "section": "editors-pick"
+    },
+    {
+      "id": "transform-tools",
+      "name": "Transform.tools",
+      "description": "Convert data structures between JSON, TypeScript, Go, GraphQL, Kotlin, Rust, and many other formats.",
+      "url": "https://transform.tools",
+      "category": "development",
+      "tags": [
+        "converter",
+        "json",
+        "typescript",
+        "graphql",
+        "format"
+      ],
+      "github": "https://github.com/ritz078/transform",
+      "license": "MIT",
+      "stars": 9186,
+      "addedAt": "2026-07-28",
+      "section": "meets-criteria"
     }
   ]
 }
