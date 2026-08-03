@@ -12,6 +12,7 @@ interface ToolGridProps {
   errorMessage: string;
   searchQuery: string;
   activeCategory: string;
+  sortBy: string;
   setSearchQuery: (query: string) => void;
 }
 
@@ -24,6 +25,7 @@ export function ToolGrid({
   errorMessage,
   searchQuery,
   activeCategory,
+  sortBy,
   setSearchQuery,
 }: ToolGridProps) {
   const [showMore, setShowMore] = useState(false);
@@ -80,6 +82,7 @@ export function ToolGrid({
                 categories={categories}
                 searchKeywords={searchKeywords}
                 setSearchQuery={setSearchQuery}
+                sortBy={sortBy}
               />
             )}
 
@@ -91,6 +94,7 @@ export function ToolGrid({
                 categories={categories}
                 searchKeywords={searchKeywords}
                 setSearchQuery={setSearchQuery}
+                sortBy={sortBy}
               />
             )}
 
@@ -103,6 +107,7 @@ export function ToolGrid({
                   categories={categories}
                   searchKeywords={searchKeywords}
                   setSearchQuery={setSearchQuery}
+                  sortBy={sortBy}
                 />
               ) : (
                 <div className="show-more-wrap">
@@ -129,6 +134,7 @@ interface SectionProps {
   categories: Category[];
   searchKeywords: string[];
   setSearchQuery: (query: string) => void;
+  sortBy: string;
 }
 
 function Section({
@@ -138,12 +144,27 @@ function Section({
   categories,
   searchKeywords,
   setSearchQuery,
+  sortBy,
 }: SectionProps) {
+  const sortedTools = [...tools];
+
+  if (sortBy === "newest") {
+    sortedTools.sort(
+      (a, b) =>
+        new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime()
+    );
+  } else if (sortBy === "oldest") {
+    sortedTools.sort(
+      (a, b) =>
+        new Date(a.addedAt).getTime() - new Date(b.addedAt).getTime()
+    );
+  }
+
   return (
     <section className={`tool-section tool-section--${variant}`}>
       <div className="section-divider">{label}</div>
       <div className="grid border-glow">
-        {tools.map((tool) => (
+        {sortedTools.map((tool) => (
           <ToolCard
             key={tool.id}
             tool={tool}
