@@ -66,40 +66,21 @@ export function ToolCard({
       >
         <div className="card-header">
           <div className="card-title-wrap">
-            <div className="card-category-icon" data-category={tool.category}>
-              <span>{cat.icon}</span>
-            </div>
-            <a
-              href={tool.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-title"
-            >
-              {highlightMatches(tool.name, searchKeywords)}
-              <ExternalIcon />
-            </a>
-          </div>
-
-          <div>
-            {tool.section === "featured" && (
-              <span className="featured-badge">Featured</span>
-            )}
-            {tool.section === "editors-pick" && (
-              <span className="editors-badge">Editor's Pick</span>
-            )}
-            {tool.flag === "new" && (
-              <span className="flag-badge flag-new" title="Brand new project">
-                New
-              </span>
-            )}
-            {tool.flag === "abandoned" && (
-              <span
-                className="flag-badge flag-abandoned"
-                title="This project is no longer maintained"
+            <div className="title-wrapper">
+              <div className="card-category-icon" data-category={tool.category}>
+                <span>{cat.icon}</span>
+              </div>
+              <a
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-title"
               >
-                Abandoned
-              </span>
-            )}
+                {highlightMatches(tool.name, searchKeywords)}
+                <ExternalIcon />
+              </a>
+            </div>
+
             {tool.notRecommendedReason !== undefined && (
               <div
                 onClick={(e) => {
@@ -112,6 +93,28 @@ export function ToolCard({
                   <use href="/icons-sprite.svg#exclamation-mark" />
                 </svg>
               </div>
+            )}
+          </div>
+
+          <div className="tool-badges">
+            {tool.flag === "abandoned" && (
+              <span
+                className="flag-badge flag-abandoned"
+                title="This project is no longer maintained"
+              >
+                Abandoned
+              </span>
+            )}
+            {tool.section === "editors-pick" && (
+              <span className="editors-badge">Editor's Pick</span>
+            )}
+            {tool.section === "featured" && (
+              <span className="featured-badge">Featured</span>
+            )}
+            {tool.flag === "new" && (
+              <span className="flag-badge flag-new" title="Brand new project">
+                New
+              </span>
             )}
           </div>
         </div>

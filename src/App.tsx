@@ -29,7 +29,7 @@ export default function App() {
   const activeCat = categories.find((c) => c.id === activeCategory);
 
   return (
-    <>
+    <div className="container">
       <ModalProvider modalConfigs={MODAL_CONFIGS}>
         <SkipContentLink />
         <Header
@@ -71,6 +71,6 @@ export default function App() {
         <ScrollToTopButton />
         <Footer />
       </ModalProvider>
-    </>
+    </div>
   );
 }

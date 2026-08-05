@@ -23,7 +23,15 @@
         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         sans-serif;
     --font-display: "Space Grotesk", "Inter", sans-serif;
+    --tool-card-padding: 1.5rem;
 }
+
+@media (max-width: 768px) {
+    :root {
+        --tool-card-padding: 1rem;
+    }
+}
+
 
 * {
     margin: 0;
@@ -47,6 +55,18 @@ body {
 button {
     text-box-trim: trim-both;
     cursor: pointer;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-inline: 1rem;
+    }
 }
 
 .skip-link {
@@ -235,9 +255,7 @@ body::after {
 /* ===== HEADER ===== */
 .site-header {
     position: relative;
-    padding: 3rem 1.5rem 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding-block: 3rem 2rem;
     border-bottom: 2px solid var(--border);
 }
 
@@ -340,12 +358,26 @@ h1 .dotnet {
     border-left: 3px solid var(--accent);
 }
 
+@media (max-width: 768px) {
+    .tagline-block {
+        border-left: 0;
+        padding-left: 0;
+    }
+}
+
 .tagline-main {
     font-family: var(--font-display);
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--text);
     letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+    .tagline-main {
+        font-size: 1.2rem;
+        max-width: 300px;
+    }
 }
 
 .tagline-sub {
@@ -451,9 +483,7 @@ h1 .dotnet {
 
 /* ===== CONTROLS ===== */
 .controls {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.5rem;
+    padding-block: 1.5rem;
     top: 0;
     background: rgba(5, 5, 5, 0.92);
     backdrop-filter: blur(12px);
@@ -605,9 +635,6 @@ input[type="text"]::placeholder {
 
 /* ===== SECTION DIVIDER ===== */
 .section-divider {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -635,6 +662,14 @@ input[type="text"]::placeholder {
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 0.5rem;
     background: var(--border);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        background: transparent;
+        padding-inline: 0;
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 400px) {
@@ -726,8 +761,22 @@ input[type="text"]::placeholder {
     background: var(--border-light);
 }
 
+@media (max-width: 768px) {
+
+    .tool-section--featured,
+    .tool-section--featured .grid {
+        background: transparent;
+    }
+}
+
 .tool-section--editors {
     background: #0a0a0a;
+}
+
+@media (max-width: 768px) {
+    .tool-section--editors {
+        background: transparent;
+    }
 }
 
 .tool-section--meets {
@@ -738,6 +787,12 @@ input[type="text"]::placeholder {
     background: #161616;
 }
 
+@media (max-width: 768px) {
+    .tool-section--meets .grid {
+        background: transparent;
+    }
+}
+
 /* SHOW MORE */
 .show-more-wrap {
     background-color: var(--border);
@@ -745,6 +800,12 @@ input[type="text"]::placeholder {
     width: 100%;
     margin: 0 auto;
     padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .show-more-wrap {
+        background: transparent;
+    }
 }
 
 .show-more-btn {
@@ -813,7 +874,7 @@ input[type="text"]::placeholder {
 /* ===== CARD ===== */
 .card {
     background: var(--surface);
-    padding: 1.5rem;
+    padding: var(--tool-card-padding);
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
@@ -895,9 +956,16 @@ input[type="text"]::placeholder {
     gap: 0.75rem;
 }
 
-.card-title-wrap {
+.title-wrapper {
     display: flex;
-    flex-direction: row;
+    gap: 0.2rem;
+}
+
+.card-title-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 0.2rem;
 }
 
@@ -949,7 +1017,7 @@ input[type="text"]::placeholder {
 
 .card-title {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: clamp(0.8rem, 4vw, 1.25rem);
     font-weight: 700;
     color: var(--text);
     text-decoration: none;
@@ -977,6 +1045,14 @@ input[type="text"]::placeholder {
     transform: translateX(0);
 }
 
+.tool-badges {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
 .featured-badge {
     background: var(--accent);
     color: #fff;
@@ -986,7 +1062,6 @@ input[type="text"]::placeholder {
     padding: 0.15rem 0.4rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    border-radius: 1px;
     flex-shrink: 0;
 }
 
@@ -999,7 +1074,6 @@ input[type="text"]::placeholder {
     padding: 0.15rem 0.4rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    border-radius: 1px;
     flex-shrink: 0;
 }
 
@@ -1010,7 +1084,6 @@ input[type="text"]::placeholder {
     padding: 0.15rem 0.4rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    border-radius: 1px;
     flex-shrink: 0;
 }
 
@@ -1021,7 +1094,7 @@ input[type="text"]::placeholder {
 
 .flag-badge.flag-abandoned {
     background: #3a3a3a;
-    color: #b5b5b5;
+    color: #e6e6e6;
     text-decoration: line-through;
 }
 
@@ -1076,6 +1149,7 @@ input[type="text"]::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: .2rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--border);
     margin-top: auto;
@@ -1123,6 +1197,7 @@ input[type="text"]::placeholder {
     padding: 0.2rem 0.4rem;
     border: 1px solid transparent;
     border-radius: 2px;
+    text-wrap: nowrap;
 }
 
 .gh-link:hover {
@@ -1204,9 +1279,7 @@ input[type="text"]::placeholder {
 
 /* ===== FOOTER ===== */
 footer {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding-block: 3rem;
     text-align: center;
     border-top: 2px solid var(--border);
 }
