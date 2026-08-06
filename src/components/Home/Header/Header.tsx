@@ -1,7 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { FALLBACK_REPO_STARS } from "../constants/fallbackData";
-import { REPO_URL } from "../constants/global";
-import { useModal } from "../hooks/useModal";
+import { FALLBACK_REPO_STARS } from "../../../constants/fallbackData";
+import { REPO_URL } from "../../../constants/global";
+import { useModal } from "../../../hooks/useModal";
+import s from "./Header.module.css";
 
 interface HeaderProps {
   toolCount: number;
@@ -23,39 +24,36 @@ export function Header({
 
   return (
     <>
-      <header className="site-header">
-        <div className="stars-button-container">
+      <header className={s.header}>
+        <div className={s.starsButtonContainer}>
           <a
+            className={`${s.starsButton} submit-tool-button `}
             href="https://github.com/BraveOPotato/FckSignups"
             target="_blank"
             rel="noopener noreferrer"
-            className="submit-tool-button stars-button"
             aria-label={`GitHub repository, current stars: ${starsCount}`}
           >
             {starsCount}
-            <svg className="star-svg" aria-hidden="true">
+            <svg aria-hidden="true">
               <use href="/icons-sprite.svg#solid-star" />
             </svg>
           </a>
         </div>
-        <div className="header-grid">
-          <div className="brand-block">
-            <h1
-              style={{ cursor: "pointer" }}
-              onClick={() => setSearchQuery("")}
-            >
-              <span className="fck glitch" data-text="NO">
+        <div className={s.headerGrid}>
+          <div className={s.brandBlock}>
+            <h1 className={s.brandTitle} onClick={() => setSearchQuery("")}>
+              <span className={`${s.fck} ${s.glitch}`} data-text="NO">
                 NO
               </span>
-              <span className="signups">Signups</span>
-              <span className="dotnet">.net</span>
+              <span>Signups</span>
+              <span className={s.dotnet}>.net</span>
             </h1>
-            <h2 className="formerly-fcksignups">(formerly FckSignups.com)</h2>
-            <div className="tagline-block">
-              <p className="tagline-main">
+            <h2 className={s.formerlyFcksignups}>(formerly FckSignups.com)</h2>
+            <div className={s.taglineBlock}>
+              <p className={s.taglineMain}>
                 Open Source Tools. No Signups. Right in your browser
               </p>
-              <p className="tagline-sub">
+              <p className={s.taglineSub}>
                 Ever tried to use a simple tool, and it had the audacity to ask
                 for a signup? Ever rolled your eyes at signup screens? If yes,
                 this should help you out! An reviewed-list of no-signup tools
@@ -65,7 +63,7 @@ export function Header({
             </div>
           </div>
 
-          <div className="header-stats">
+          <div className={s.headerStats}>
             <button
               className="submit-tool-button"
               onClick={() => showModalWithID("submit-tool")}
@@ -73,15 +71,15 @@ export function Header({
               SUBMIT A TOOL
             </button>
 
-            <div className="stats">
-              <div className="stat-row">
+            <div className={s.stats}>
+              <div className={s.statRow}>
                 <span className="white">
                   {String(toolCount).padStart(3, "0")}
                 </span>{" "}
                 TOOLS LOADED
               </div>
               •
-              <div className="stat-row">
+              <div className={s.statRow}>
                 <span className="white">
                   {String(categoryCount).padStart(3, "0")}
                 </span>{" "}

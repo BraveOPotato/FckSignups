@@ -1,0 +1,95 @@
+.footer {
+  padding-block: 3rem;
+  text-align: center;
+  border-top: 2px solid var(--border);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footerCol h3 {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.footerCol p,
+.footerCol a,
+.footerCol button {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  line-height: 1.8;
+}
+
+.footerBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.footerBtn:hover {
+  color: var(--accent);
+}
+
+.footerCol a:hover {
+  color: var(--accent);
+}
+
+.contributeButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contributeButtons>* {
+  width: fit-content;
+}
+
+.contributeButtons a {
+  display: flex;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contributeButtons a>svg {
+  width: 0.7rem;
+  height: 0.7rem;
+  position: relative;
+  left: 2px;
+}
+
+.footerBottom {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.footerBottom a {
+  color: #ff4d4d;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.footerBottom a:hover {
+  color: #ff6666;
+}

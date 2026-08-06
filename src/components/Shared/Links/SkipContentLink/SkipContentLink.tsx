@@ -1,6 +1,8 @@
+import s from "./SkipContentLink.module.css";
+
 const SkipContentLink = () => {
   return (
-    <a className="skip-link" href="#main-content" target="_self">
+    <a className={s.skipLink} href="#main-content" target="_self">
       Skip to main content
     </a>
   );

@@ -1,0 +1,255 @@
+/* ===== SECTION DIVIDER (Tools) ===== */
+.sectionDivider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sectionDivider::before,
+.sectionDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ===== GRID ===== */
+.grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 0.5rem;
+  background: var(--border);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    background: transparent;
+    padding-inline: 0;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TOOL SECTIONS */
+.toolSections {
+  display: flex;
+  flex-direction: column;
+}
+
+.toolSections>.error {
+  max-width: 1400px;
+  width: calc(100% - 3rem);
+  margin: 0 auto;
+  grid-column: unset;
+}
+
+.toolSection {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.toolSections>.toolSection:first-of-type {
+  border-top: none;
+  padding-top: 0.5rem;
+}
+
+.toolSection .sectionDivider {
+  padding-bottom: 0;
+}
+
+.toolSectionFeatured {
+  background: var(--surface);
+}
+
+.toolSectionFeatured .grid {
+  background: var(--border-light);
+}
+
+@media (max-width: 768px) {
+
+  .toolSectionFeatured,
+  .toolSectionFeatured .grid {
+    background: transparent;
+  }
+}
+
+.toolSectionEditors {
+  background: #0a0a0a;
+}
+
+@media (max-width: 768px) {
+  .toolSectionEditors {
+    background: transparent;
+  }
+}
+
+.toolSectionMeets {
+  background: var(--bg);
+}
+
+.toolSectionMeets .grid {
+  background: #161616;
+}
+
+@media (max-width: 768px) {
+  .toolSectionMeets .grid {
+    background: transparent;
+  }
+}
+
+/* SHOW MORE */
+.showMoreWrap {
+  background-color: var(--border);
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .showMoreWrap {
+    background: transparent;
+  }
+}
+
+.showMoreBtn {
+  position: relative;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  line-height: 1.3rem;
+  border: 1px dashed var(--accent);
+  border-radius: 0.5rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+@property --degree {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.showMoreBtn::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  inset: -2px;
+  background: conic-gradient(from var(--degree), #00e1ff, #ff1e69 50%, #00e1ff);
+  padding: 10px;
+  border-radius: 1rem;
+  animation: changingBgColor 5s linear infinite;
+  z-index: -2;
+  isolation: isolate;
+}
+
+.showMoreBtn::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(1rem - 2px);
+  background: var(--surface);
+  z-index: -1;
+}
+
+.showMoreBtn strong {
+  color: var(--text);
+  font-size: 1.2em;
+}
+
+.showMoreBtn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* ===== STATES ===== */
+.empty,
+.loading,
+.error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 5rem 2rem;
+  background: var(--surface);
+}
+
+.empty h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.empty p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.loading {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.loading::after {
+  content: "...";
+  animation: dots 1.5s infinite;
+}
+
+.error {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  border: 1px solid rgba(255, 0, 64, 0.2);
+}
+
+.error h3 {
+  font-family: var(--font-display);
+  margin-bottom: 0.5rem;
+}
+
+.errorFallback {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+@keyframes changingBgColor {
+  to {
+    --degree: 360deg;
+  }
+}
+
+@keyframes dots {
+
+  0%,
+  20% {
+    content: ".";
+  }
+
+  40% {
+    content: "..";
+  }
+
+  60%,
+  100% {
+    content: "...";
+  }
+}

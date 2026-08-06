@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import s from "./ScrollToTopButton.module.css";
 
 export function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,7 +50,7 @@ export function ScrollToTopButton() {
   return (
     <button
       type="button"
-      className="scroll-to-top-button"
+      className={s.scrollToTopButton}
       onClick={scrollToTop}
       aria-label="Scroll to top"
       title="Scroll to top"

@@ -1,0 +1,48 @@
+.scrollToTopButton {
+	position: fixed;
+	right: 1.25rem;
+	bottom: 1.25rem;
+	z-index: 1000;
+	width: 3.25rem;
+	height: 3.25rem;
+	border: 2px solid var(--accent);
+	border-radius: 50%;
+	background: var(--surface);
+	color: var(--text);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 0 2px rgba(255, 0, 64, 0.15), 0 10px 30px rgba(0, 0, 0, 0.35);
+	cursor: pointer;
+	transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.scrollToTopButton:hover {
+	background: var(--accent);
+	color: #fff;
+	box-shadow: 0 0 0 2px rgba(255, 0, 64, 0.3), 0 12px 34px rgba(255, 0, 64, 0.25);
+}
+
+.scrollToTopButton:focus-visible {
+	outline: 2px solid var(--accent-2);
+	outline-offset: 3px;
+}
+
+.scrollToTopButton:active {
+	scale: .99;
+}
+
+.scrollToTopButton svg {
+	width: 1.25rem;
+	height: 1.25rem;
+	fill: currentColor;
+}
+
+@media (max-width: 700px) {
+	.scrollToTopButton {
+		right: 1rem;
+		bottom: 1rem;
+		width: 3rem;
+		height: 3rem;
+	}
+}

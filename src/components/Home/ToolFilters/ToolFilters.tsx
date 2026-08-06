@@ -1,6 +1,7 @@
-import type { Category, Tool } from "../types";
+import type { Category, Tool } from "../../../types";
+import s from "./ToolFilters.module.css";
 
-interface ControlsProps {
+interface ToolFiltersProps {
   categories: Category[];
   activeCategory: string;
   searchQuery: string;
@@ -10,7 +11,7 @@ interface ControlsProps {
   onSearchChange: (q: string) => void;
 }
 
-export function Controls({
+export function ToolFilters({
   categories,
   activeCategory,
   searchQuery,
@@ -18,7 +19,7 @@ export function Controls({
   filteredCount,
   onCategoryChange,
   onSearchChange,
-}: ControlsProps) {
+}: ToolFiltersProps) {
   // Count tools per category for badge
   const counts: Record<string, number> = { all: allTools.length };
   allTools.forEach((t) => {
@@ -26,9 +27,9 @@ export function Controls({
   });
 
   return (
-    <div className="controls">
-      <div className="controls-inner">
-        <div className="search-box">
+    <div className={s.controls}>
+      <div className={s.controlsInner}>
+        <div className={s.searchBox}>
           <input
             type="search"
             value={searchQuery}
@@ -40,7 +41,7 @@ export function Controls({
         </div>
 
         <div
-          className="categories"
+          className={s.categories}
           role="group"
           aria-label="Filter by category"
         >
@@ -51,7 +52,7 @@ export function Controls({
             return (
               <button
                 key={cat.id}
-                className={`cat-btn${isCurrent ? " active" : ""}`}
+                className={`${s.catBtn} ${isCurrent ? s.active : ""}`}
                 data-id={cat.id}
                 title={cat.description}
                 aria-pressed={isCurrent}
@@ -60,7 +61,7 @@ export function Controls({
               >
                 <span aria-hidden="true">{cat.icon}</span>
                 {cat.name}
-                <span className="count" aria-hidden="true">
+                <span className={s.count} aria-hidden="true">
                   {String(countNum).padStart(2, "0")}
                 </span>
               </button>
@@ -68,7 +69,7 @@ export function Controls({
           })}
         </div>
 
-        <div className="results-count" aria-live="polite">
+        <div className={s.resultsCount} aria-live="polite">
           SHOWING{" "}
           <span className="white">
             {String(filteredCount).padStart(2, "0")}

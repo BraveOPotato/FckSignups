@@ -1,0 +1,54 @@
+.wrapper {
+	position: fixed;
+	bottom: 10%;
+	right: 15%;
+	animation: idle-float 3s linear infinite alternate;
+}
+
+.button {
+	padding: 0 !important;
+	width: 40px;
+	height: 40px;
+	border-radius: .5rem;
+	background-color: var(--accent);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button svg {
+	vertical-align: center;
+	width: 24px;
+	height: 24px;
+}
+
+.button:hover svg,
+.button[data-sticky="true"] svg {
+	stroke: black;
+}
+
+.menu {
+	position: absolute;
+	left: -10rem;
+	top: -4.2rem;
+	list-style-type: none;
+}
+
+.menuItem {
+	max-width: 9rem;
+	margin-top: 1rem;
+	line-height: 1.4;
+	font-family: var(--font-sans);
+	background-color: var(--accent);
+	text-align: left;
+}
+
+@keyframes idle-float {
+	0% {
+		translate: 0 0;
+	}
+
+	100% {
+		translate: 10% 15%;
+	}
+}

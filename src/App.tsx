@@ -1,10 +1,10 @@
-import { Controls } from "./components/Controls";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { Report } from "./components/Report";
-import { ScrollToTopButton } from "./components/ScrollToTopButton";
-import SkipContentLink from "./components/SkipContentLink";
-import { ToolGrid } from "./components/ToolGrid";
+import { Footer } from "./components/Home/Footer/Footer";
+import { Header } from "./components/Home/Header/Header";
+import { ReportFloatingWidget } from "./components/Home/ReportFloatingWidget/ReportFloatingWidget";
+import { ToolFilters } from "./components/Home/ToolFilters/ToolFilters";
+import { Tools } from "./components/Home/Tools/Tools";
+import { ScrollToTopButton } from "./components/Shared/Buttons/ScrollToTopButton/ScrollToTopButton";
+import SkipContentLink from "./components/Shared/Links/SkipContentLink/SkipContentLink";
 import { MODAL_CONFIGS } from "./constants/ModalConfigs";
 import { ModalProvider } from "./hooks/useModal";
 import { ReportProvider } from "./hooks/useReport";
@@ -29,7 +29,7 @@ export default function App() {
   const activeCat = categories.find((c) => c.id === activeCategory);
 
   return (
-    <>
+    <div className="container">
       <ModalProvider modalConfigs={MODAL_CONFIGS}>
         <SkipContentLink />
         <Header
@@ -38,7 +38,7 @@ export default function App() {
           setSearchQuery={setSearchQuery}
         />
 
-        <Controls
+        <ToolFilters
           categories={categories}
           activeCategory={activeCategory}
           searchQuery={searchQuery}
@@ -54,7 +54,7 @@ export default function App() {
         )}
 
         <ReportProvider>
-          <ToolGrid
+          <Tools
             sections={sections}
             searchKeywords={searchKeywords}
             isSearching={isSearching}
@@ -66,11 +66,11 @@ export default function App() {
             setSearchQuery={setSearchQuery}
           />
 
-          <Report />
+          <ReportFloatingWidget />
         </ReportProvider>
         <ScrollToTopButton />
         <Footer />
       </ModalProvider>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,30 @@
+.skipLink {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	z-index: 10000;
+	padding: 1rem;
+	background: var(--accent);
+	color: var(--text);
+	border-radius: .75rem;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: .9rem;
+	letter-spacing: .03em;
+	text-transform: uppercase;
+	translate: -50% -101%;
+	transition: translate 180ms ease;
+}
+
+@media (max-width: 768px) {
+	.skipLink {
+		font-size: .8rem;
+		padding: .8rem;
+		border-radius: .5rem;
+	}
+}
+
+.skipLink:focus,
+.skipLink:focus-visible {
+	translate: -50% 20px;
+}
