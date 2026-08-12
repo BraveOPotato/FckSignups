@@ -4064,6 +4064,22 @@
       "stars": 1948,
       "addedAt": "2026-08-03",
       "section": "editors-pick"
+    },
+    {
+      "id": "nutilz-binary-calculator",
+      "name": "Nutilz Binary Calculator",
+      "description": "Binary arithmetic and bitwise ops (AND/OR/XOR/NOT) with live decimal/hex conversion",
+      "url": "https://nutilz.com/binary-calculator",
+      "category": "utilities",
+      "tags": [
+        "binary",
+        "calculator",
+        "converter",
+        "hex",
+        "developer"
+      ],
+      "addedAt": "2026-08-05",
+      "section": "meets-criteria"
     }
   ]
 }
