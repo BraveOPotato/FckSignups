@@ -4239,6 +4239,26 @@
       "stars": 17,
       "addedAt": "2026-08-21",
       "section": "meets-criteria"
+    },
+    {
+      "id": "aetherius-control-room",
+      "name": "AETHERIUS Control Room",
+      "description": "Explore and test 40 live x402 APIs from the browser with no signup — local mode is free, testnet settles real USDC on Base.",
+      "url": "https://wilnowilx.github.io/aetheriusxapi/dashboard/",
+      "category": "development",
+      "tags": [
+        "api",
+        "x402",
+        "crypto",
+        "base",
+        "ai-agents",
+        "usdc"
+      ],
+      "github": "https://github.com/wilnowilx/aetheriusxapi",
+      "license": "MIT",
+      "stars": 0,
+      "addedAt": "2026-09-04",
+      "section": "meets-criteria"
     }
   ]
 }
