@@ -4239,6 +4239,25 @@
       "stars": 17,
       "addedAt": "2026-08-21",
       "section": "meets-criteria"
+    },
+    {
+      "id": "taskuary",
+      "name": "Taskuary",
+      "description": "Explore a local-first AI task hub for triage, reports, and coding-agent handoffs in an interactive browser demo.",
+      "url": "https://taskuary.com/demo/",
+      "category": "productivity",
+      "tags": [
+        "ai",
+        "task-management",
+        "automation",
+        "email",
+        "coding-agents"
+      ],
+      "github": "https://github.com/ldbumble/taskuary",
+      "license": "MIT",
+      "stars": 48,
+      "addedAt": "2026-09-07",
+      "section": "meets-criteria"
     }
   ]
 }
