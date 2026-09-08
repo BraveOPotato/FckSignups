@@ -1,4 +1,4 @@
-import type { Category, Tool } from "../../../types";
+import type { Category, SortOption, Tool } from "../../../types";
 import s from "./ToolFilters.module.css";
 
 interface ToolFiltersProps {
@@ -7,8 +7,10 @@ interface ToolFiltersProps {
   searchQuery: string;
   allTools: Tool[];
   filteredCount: number;
+  sortBy: SortOption;
   onCategoryChange: (id: string) => void;
   onSearchChange: (q: string) => void;
+  onSortChange: (sort: SortOption) => void;
 }
 
 export function ToolFilters({
@@ -17,8 +19,10 @@ export function ToolFilters({
   searchQuery,
   allTools,
   filteredCount,
+  sortBy,
   onCategoryChange,
   onSearchChange,
+  onSortChange,
 }: ToolFiltersProps) {
   // Count tools per category for badge
   const counts: Record<string, number> = { all: allTools.length };
@@ -69,16 +73,34 @@ export function ToolFilters({
           })}
         </div>
 
-        <div className={s.resultsCount} aria-live="polite">
-          SHOWING{" "}
-          <span className="white">
-            {String(filteredCount).padStart(2, "0")}
-          </span>{" "}
-          OF{" "}
-          <span className="white">
-            {String(allTools.length).padStart(2, "0")}
-          </span>{" "}
-          TOOLS
+        <div className={s.resultsToolbar}>
+          <div className={s.resultsCount} aria-live="polite">
+            SHOWING{" "}
+            <span className="white">
+              {String(filteredCount).padStart(2, "0")}
+            </span>{" "}
+            OF{" "}
+            <span className="white">
+              {String(allTools.length).padStart(2, "0")}
+            </span>{" "}
+            TOOLS
+          </div>
+
+          <div className={s.sortControls}>
+            <label htmlFor="sort-select">SORT BY</label>
+            <select
+              id="sort-select"
+              className={s.sortSelect}
+              value={sortBy}
+              onChange={(event) =>
+                onSortChange(event.target.value as SortOption)
+              }
+            >
+              <option value="default">Default</option>
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

@@ -148,3 +148,47 @@ input[type="text"]::placeholder {
 	color: var(--text-muted);
 	margin-top: 0.25rem;
 }
+
+.resultsToolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+.sortControls {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--text-muted);
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.08em;
+}
+
+.sortSelect {
+	background: var(--surface);
+	color: var(--text);
+	border: 1px solid var(--border-light);
+	border-radius: 4px;
+	padding: 0.35rem 0.6rem;
+	font: inherit;
+	cursor: pointer;
+}
+
+.sortSelect:hover,
+.sortSelect:focus-visible {
+	border-color: var(--accent);
+}
+
+.sortSelect:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+	.resultsToolbar {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}
