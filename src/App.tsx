@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Footer } from "./components/Home/Footer/Footer";
 import { Header } from "./components/Home/Header/Header";
 import { ReportFloatingWidget } from "./components/Home/ReportFloatingWidget/ReportFloatingWidget";
@@ -9,8 +10,10 @@ import { MODAL_CONFIGS } from "./constants/ModalConfigs";
 import { ModalProvider } from "./hooks/useModal";
 import { ReportProvider } from "./hooks/useReport";
 import { useTools } from "./hooks/useTools";
+import type { SortOption } from "./types";
 
 export default function App() {
+  const [sortBy, setSortBy] = useState<SortOption>("default");
   const {
     tools,
     filteredTools,
@@ -44,8 +47,10 @@ export default function App() {
           searchQuery={searchQuery}
           allTools={tools}
           filteredCount={filteredTools.length}
+          sortBy={sortBy}
           onCategoryChange={setActiveCategory}
           onSearchChange={setSearchQuery}
+          onSortChange={setSortBy}
         />
         {activeCat && activeCat.id !== "all" && (
           <div className="section-divider">
@@ -63,6 +68,7 @@ export default function App() {
             errorMessage={errorMessage}
             searchQuery={searchQuery}
             activeCategory={activeCategory}
+            sortBy={sortBy}
             setSearchQuery={setSearchQuery}
           />
 
